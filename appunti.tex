@@ -1,0 +1,61 @@
+%\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+
+\title{Appunti di compatibilità elettromagnetica}
+\author{Daniele Olivieri}
+\date{}
+
+\pdfinfo{%
+  /Title    ()
+  /Author   ()
+  /Creator  ()
+  /Producer ()
+  /Subject  ()
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+
+\section{Cenni sulla compatibilità elettromagnetica}
+
+Cos'è la compatibilità elettromagnetica? La scienza che studia la capacità di qualsiasi 
+apparecchiatura di funzionare in modo soddisfacente in un ambiente soggetto a disturbi elettromagnetici
+senza produrre disturbi intollerabili ad altri apparati.
+
+Ad esempio quando si avvicina il cellulare alle casse dello stereo, si percepisce un ronzio nella cassa
+dello stesso, questo fenomeno è dovuto al trasferimento di parte dell'energia emessa dal cellulare ai cavi 
+dello stereo che lo convertono in disturbo sonoro.
+Questo fenomeno non può e non deve avvenire nemmeno in situazioni critiche come una sala ospedaliera in cui il disturbo
+emesso da un cellulare potrebbe alterare le misurazioni effettuate da un apparecchio come l'elettrocardiografo.
+Il dispositivo elettromedicale deve essere reso immune dai disturbi. (Immagina un pacemaker!)
+
+Si distingue la Compatibilità in senso attivo o passivo:
+\begin{itemize}
+ \item Attivo: l'oggetto non deve emettere disturbi di entità troppo elevata
+ \item Passivo: l'oggetto deve essere in grado di resistere ai disturbi esterni, emessi da altri dispositivi
+ senza alterare il proprio funzionamento
+\end{itemize}
+
+Altri dispositivi che devono sottoporsi alle analisi di Compatibilità sono i dispositivi comunque complessi
+composti ad esempio da parti multiple, che possono essere commercializzate separatamente. In questo caso solo
+le singole parti devono garantire un soddisfacimento dei vincoli dati dalla Compatibilità Elettromagnetica.
+
+Si parla di Compatibilità \textbf{intra-sistema} se si analizza il problema all'interno del sistema con approccio
+``microscopico'', la compatibilità \textbf{inter-sistema} analizza invece la compatibilità tra dispositivi differenti.
+Esistono due grandi fenomeni: \textbf{emissione} e \textbf{immunità}, questi due fenomeni richiamano la compatibilità in senso attivo e passivo.
+
+I disturbi vengono poi caratterizzati in disturbi \textbf{radiati} in aria e disturbi \textbf{condotti} tramite
+un canale vincolato, ad esempio un cavo di alimentazione.
+Nessun disturbo si può caratterizzare mediante una singola tipologia, %rivedi qui
+un disturbo radiato ad esempio può accoppiarsi con il cavo di alimentazione e diventare disturbo condotto.
+Il cilindro di ferrite presente su un cavo VGA ad esempio attenua i disturbi che tendono a propagarsi lungo il cavo
+incrementandone l'impedenza.
+\newpage
+Al di sotto dei 30 MHz si ritiene che il fenomeno sia di natura prevalentemente condotta,
+al di sopra invece si ritiene il fenomeno di natura radiata. Ad esempio il ``surge'' nasce da un fulmine e si
+propaga per via radiata, ma raggiunge i dispositivi mediante i loro cavi di alimentazione.
+
+\end{document}
