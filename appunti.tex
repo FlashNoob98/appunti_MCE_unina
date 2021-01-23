@@ -20,8 +20,8 @@
 \maketitle
 
 \section{Cenni sulla compatibilità elettromagnetica}
-
-Cos'è la compatibilità elettromagnetica? La scienza che studia la capacità di qualsiasi 
+\paragraph{Definizione}
+La compatibilità elettromagnetica è la scienza che studia la capacità di qualsiasi 
 apparecchiatura di funzionare in modo soddisfacente in un ambiente soggetto a disturbi elettromagnetici
 senza produrre disturbi intollerabili ad altri apparati.
 
@@ -55,7 +55,43 @@ Il cilindro di ferrite presente su un cavo VGA ad esempio attenua i disturbi che
 incrementandone l'impedenza.
 \newpage
 Al di sotto dei 30 MHz si ritiene che il fenomeno sia di natura prevalentemente condotta,
-al di sopra invece si ritiene il fenomeno di natura radiata. Ad esempio il ``surge'' nasce da un fulmine e si
+al di sopra invece si ritiene il fenomeno di natura radiata. Ad esempio il ``\textbf{surge}'' nasce da un fulmine e si
 propaga per via radiata, ma raggiunge i dispositivi mediante i loro cavi di alimentazione.
+
+I problemi di compatibilità intra-sistema vengono gestiti durante la fase di progettazione del dispositivo
+ad esempio mediante una corretta disposizione delle piste del circuito, attraverso una opportuna scelta dei 
+componenti oppure mediante una schermatura interna, non disporrò mai un dispositivo molto suscettibile
+in prossimità di un potenziale emettitore di disturbi sulla stessa scheda elettronica.
+
+La compatibilità inter-sistema viene studiata mediante una caratterizzazione dell'ambiente elettromagnetico, 
+mediante una classificazione delle sorgenti dei disturbi e delle vittime, attraverso la definizione dei livelli di massima
+emissione e minima immunità, non riguarda soltanto l'oggetto ma anche la sua posizione nell'ambiente
+elettromagnetico.
+
+L'\textbf{ambiente elettromagnetico} è l'insieme di tutti i fenomeni elettromagnetici osservabili in un
+determinato luogo, sostanzialmente il \textbf{campo} elettromagnetico, le condizioni al contorno e le caratteristiche
+del mezzo in cui i disturbi si propagano. Per modellare l'ambiente e ottenere un risultato valido
+è necessaria una esatta conoscenza di tutti questi parametri, impresa per nulla semplice.
+
+Anzichè calcolare la soluzione numericamente, si preferisce infatti misurare direttamente l'ambiente
+elettromagnetico e le emissioni generate dall'oggetto. Anche quest'aspetto presenta dei problemi come
+l'incertezza di misura e la discretizzazione del fenomeno, ovvero la scelta del numero di punti in cui effettuare
+la misura.
+Si può scegliere di eseguire entrambe le procedure, utilizzare un modello numerico approssimato per 
+prevedere a grandi linee i risultati e approfondire con le misurazioni i punti più critici.
+
+\paragraph{La perturbazione elettromagnetica}
+È un fenomeno di origine elettromagnetico capace di alterare il funzionamento di un'apparecchiatura,
+può essere costituito da:
+\begin{itemize}
+\item Rumore
+\item Segnale non desiderato
+\item Alterazione del mezzo
+\end{itemize}
+
+
+
+
+
 
 \end{document}
