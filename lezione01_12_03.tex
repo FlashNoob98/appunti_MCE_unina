@@ -1,0 +1,69 @@
+\section{Cenni sulla compatibilità elettromagnetica}
+\paragraph{Definizione}
+La compatibilità elettromagnetica è la scienza che studia la capacità di qualsiasi 
+apparecchiatura di funzionare in modo soddisfacente in un ambiente soggetto a disturbi elettromagnetici
+senza produrre disturbi intollerabili ad altri apparati.
+
+Ad esempio quando si avvicina il cellulare alle casse dello stereo, si percepisce un ronzio nella cassa
+dello stesso, questo fenomeno è dovuto al trasferimento di parte dell'energia emessa dal cellulare ai cavi 
+dello stereo che lo convertono in disturbo sonoro.
+Questo fenomeno non può e non deve avvenire nemmeno in situazioni critiche come una sala ospedaliera in cui il disturbo
+emesso da un cellulare potrebbe alterare le misurazioni effettuate da un apparecchio come l'elettrocardiografo.
+Il dispositivo elettromedicale deve essere reso immune dai disturbi. (Immagina un pacemaker!)
+
+Si distingue la Compatibilità in senso attivo o passivo:
+\begin{itemize}
+ \item Attivo: l'oggetto non deve emettere disturbi di entità troppo elevata
+ \item Passivo: l'oggetto deve essere in grado di resistere ai disturbi esterni, emessi da altri dispositivi
+ senza alterare il proprio funzionamento
+\end{itemize}
+
+Altri dispositivi che devono sottoporsi alle analisi di Compatibilità sono i dispositivi comunque complessi
+composti ad esempio da parti multiple, che possono essere commercializzate separatamente. In questo caso solo
+le singole parti devono garantire un soddisfacimento dei vincoli dati dalla Compatibilità Elettromagnetica.
+
+Si parla di Compatibilità \textbf{intra-sistema} se si analizza il problema all'interno del sistema con approccio
+``microscopico'', la compatibilità \textbf{inter-sistema} analizza invece la compatibilità tra dispositivi differenti.
+Esistono due grandi fenomeni: \textbf{emissione} e \textbf{immunità}, questi due fenomeni richiamano la compatibilità in senso attivo e passivo.
+
+I disturbi vengono poi caratterizzati in disturbi \textbf{radiati} in aria e disturbi \textbf{condotti} tramite
+un canale vincolato, ad esempio un cavo di alimentazione.
+Nessun disturbo si può caratterizzare mediante una singola tipologia, %rivedi qui
+un disturbo radiato ad esempio può accoppiarsi con il cavo di alimentazione e diventare disturbo condotto.
+Il cilindro di ferrite presente su un cavo VGA ad esempio attenua i disturbi che tendono a propagarsi lungo il cavo
+incrementandone l'impedenza.
+\newpage
+Al di sotto dei 30 MHz si ritiene che il fenomeno sia di natura prevalentemente condotta,
+al di sopra invece si ritiene il fenomeno di natura radiata. Ad esempio il ``\textbf{surge}'' nasce da un fulmine e si
+propaga per via radiata, ma raggiunge i dispositivi mediante i loro cavi di alimentazione.
+
+I problemi di compatibilità intra-sistema vengono gestiti durante la fase di progettazione del dispositivo
+ad esempio mediante una corretta disposizione delle piste del circuito, attraverso una opportuna scelta dei 
+componenti oppure mediante una schermatura interna, non disporrò mai un dispositivo molto suscettibile
+in prossimità di un potenziale emettitore di disturbi sulla stessa scheda elettronica.
+
+La compatibilità inter-sistema viene studiata mediante una caratterizzazione dell'ambiente elettromagnetico, 
+mediante una classificazione delle sorgenti dei disturbi e delle vittime, attraverso la definizione dei livelli di massima
+emissione e minima immunità, non riguarda soltanto l'oggetto ma anche la sua posizione nell'ambiente
+elettromagnetico.
+
+L'\textbf{ambiente elettromagnetico} è l'insieme di tutti i fenomeni elettromagnetici osservabili in un
+determinato luogo, sostanzialmente il \textbf{campo} elettromagnetico, le condizioni al contorno e le caratteristiche
+del mezzo in cui i disturbi si propagano. Per modellare l'ambiente e ottenere un risultato valido
+è necessaria una esatta conoscenza di tutti questi parametri, impresa per nulla semplice.
+
+Anzichè calcolare la soluzione numericamente, si preferisce infatti misurare direttamente l'ambiente
+elettromagnetico e le emissioni generate dall'oggetto. Anche quest'aspetto presenta dei problemi come
+l'incertezza di misura e la discretizzazione del fenomeno, ovvero la scelta del numero di punti in cui effettuare
+la misura.
+Si può scegliere di eseguire entrambe le procedure, utilizzare un modello numerico approssimato per 
+prevedere a grandi linee i risultati e approfondire con le misurazioni i punti più critici.
+
+\paragraph{La perturbazione elettromagnetica}
+È un fenomeno di origine elettromagnetico capace di alterare il funzionamento di un'apparecchiatura,
+può essere costituito da:
+\begin{itemize}
+\item Rumore
+\item Segnale non desiderato
+\item Alterazione del mezzo
+\end{itemize}
