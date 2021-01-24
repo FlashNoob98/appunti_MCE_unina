@@ -69,7 +69,14 @@ Se il sistema è complesso si può dividere la scheda in più sezioni e analizza
 semplificando le analisi.
 
 Gli ``attori'' che partecipano al fenomeno della compatibilità elettromagnetica sono sicuramente
-almeno due: la \textbf{sorgente} e la \textbf{vittima}, tra i due è interposto il canale di accoppiamento:
+almeno due: la \textbf{sorgente} e la \textbf{vittima}, tra i due è interposto il canale di accoppiamento.
+Il disturbo può colpire la vittima mediante varie \textit{porte} come le porte di comunicazione,
+di alimentazione o la porta ``involucro''.
+
+I \textit{canali di accoppiamento} sono le vie utilizzate dai disturbi o dai segnali utili per propagarsi tra i 
+dispositivi, il cavo di alimentazione può trasmettere disturbi al dispositivo provenienti dalla rete di alimentazione
+ma può essere comunque protetto con un filtro, il discorso si complica per i canali di accoppiamento non previsti,
+ovvero canali che non dovrebbero trasmettere alcuna informazione o energia utile per l'apparecchio.
 
 \begin{figure}[h]
  \includegraphics[width=0.7\linewidth]{catena_disturbi.png}
@@ -77,6 +84,26 @@ almeno due: la \textbf{sorgente} e la \textbf{vittima}, tra i due è interposto 
  \caption{Rappresentazione della catena dei canali di accoppiamento dei disturbi}
  \label{fig:catena_disturbi}
 \end{figure}
+
+I disturbi che si propagano nella vittima possono rientrare o meno nella sua \textbf{banda} di funzionamento
+ossia l'intervallo di frequenze alle quali è previsto il funzionamento del dispositivo, un disturbo si dice
+a \textit{banda stretta} se rientra nella banda di funzionamento del dispositivo, si dice a \textit{banda larga}
+se la sua ampiezza supera la banda di funzionamento del dispositivo.
+Un disturbo a banda stretta (\textit{NarrowBand}) probabilmente potrà accoppiarsi con il dispositivo mediante
+canali di accoppiamento previsti e risultare udibile per l'utente (ad esempio nel caso di un disturbo radiato che colpisce
+un ricevitore FM).
+Un disturbo a banda larga (\textit{BroadBand}) non rientra nelle caratteristiche di funzionamento del dispositivo
+e potrà utilizzare con buona probabilità anche canali non previsti.
+Un segnale composto da una singola componente in frequenza è un segnale a banda stretta per antonomasia.
+\begin{figure}[h]
+ \includegraphics[width=0.7\linewidth]{narrow-broadband.png}
+ \centering
+ \caption{Confronto tra segnali a banda stretta e larga rispetto al filtro di un ricevitore}
+ \label{fig:narrow-broadband}
+\end{figure}
+
+
+
 
 
 
