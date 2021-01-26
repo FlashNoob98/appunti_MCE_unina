@@ -53,13 +53,54 @@ Il guadagno è sempre adimensionale perchè esprime il rapporto tra grandezze id
 
 \paragraph{Propagazione in linea di trasmissione}
 Equazioni del telegrafista:
-$$
-\begin{cases}
- V(z) = V^+e^{-\alpha z} e^{-j\beta z} + V^-e^{\alpha z}e^{j\beta z}  \\
- I(z) = \frac{V^+}{Z_c}e^{-\alpha z} e^{-j\beta z} - \frac{V^-}{Z_c}e^{\alpha z}e^{j\beta z}
-\end{cases}
-$$
+
+\begin{eqnarray*}
+ V(z) &=& V^+e^{-\alpha z} e^{-j\beta z} + V^-e^{\alpha z}e^{j\beta z}  \\
+ I(z) &=& \frac{V^+}{Z_c}e^{-\alpha z} e^{-j\beta z} - \frac{V^-}{Z_c}e^{\alpha z}e^{j\beta z}
+\end{eqnarray*}
+dove
+\begin{itemize}
+ \item[$Z_c =$] Impedenza caratteristica
+ \item[$\alpha =$] Costante di attenuazione del mezzo e del dielettrico
+ \item[$\beta =$] Costante di fase pari a $2\pi/\lambda$
+\end{itemize}
+
+
 Si ha l'effetto di due onde: una \textit{progressiva} ed una \textit{regressiva}, la seconda è dovuta alla
 presenza del carico che si oppone alla trasmissione dell'onda generando appunto un'onda regressiva.
 
+Si definisce il coefficiente di riflessione:
+$$ 
+\Gamma_L = \frac{Z_L - Z_C}{Z_L + Z_C}
+$$
+Se l'impedenza di carico è pari all'impedenza del mezzo (della linea) allora il coefficiente di riflessione
+sarà pari a 0, non ci sarà onda riflessa, il campo non si ``\textit{accorge}'' del carico dato che
+in quel punto l'impedenza del carico è proprio pari all'impedenza della linea fino a quel punto, non c'è motivo affinchè
+ci sia una riflessione del campo. Il carico è equivalente ad un'altra porzione di linea identica alla precedente, si
+parla in questo caso di carico \textbf{adattato}, ossia con la stessa impedenza del mezzo.
 
+Una tipica impedenza caratteristica per i cavi in compatibilità elettromagnetica è pari a $50 \si{\ohm}$, 
+viene fornita l'attenuazione in $\si{\dB}/m$ e la costante di attenuazione $\alpha$ è in genere 
+proporzionale a $\sqrt{f}$ a causa dell'effetto pelle.
+
+La \textbf{perdita} nei cavi è misurabile con:
+$$
+P_{av} (z) = \frac{1}{2} \cdot \operatorname{Re}\left[V(z)\cdot \bar{I}(z) \right]
+$$
+in caso di carico adattato, diventa:
+$$
+P_{av}(z) = \frac{1}{2}\frac{V^{+^2}}{\left|Z_c \right|} e^{-2\alpha z} \cos{\theta_{Z_C}}
+$$
+Per misurare la potenza dissipata dopo una lunghezza generica $L$ del cavo si esegue il rapporto della funzione 
+precedente tra $z = 0$ e $z = L$
+
+$$
+\Delta P = \frac{P_{av}(z = 0)}{P_{av} (z = L)} = e^{2\alpha L} \Rightarrow \Delta P_{\si{\dB}} = 
+10\log_{10} e^{2\alpha L} \approx 8.686 \alpha L
+$$
+Misurando la potenza dopo una lunghezza sostanziale come 100 metri si può ricavare il coefficiente di attenuazione
+del cavo:
+$$
+\alpha = \frac{\text{perdite totali (100m)}}{8.686 \cdot L}\ \left[\frac{\si{\dB}}{\si{\m}}\right]
+$$
+La misura delle perdite deve essere eseguita ad ogni frequenza di funzionamento del cavo.
