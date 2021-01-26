@@ -1,0 +1,55 @@
+\section{Le unità di misura}
+Le grandezze di interesse nel campo della Compatiiblità Elettromagnetica sono prevalentemente
+campi elettrici [V/m] e magnetici [A/m], e tensioni [V] e correnti [I].
+Queste grandezze variano con valori compresi tra $10^{-6}$ e $10^{2}$. C'è una dinamica di ben 8 ordini di grandezza.
+
+Per gestire range così elevati, viene spesso utilizzata la rappresentazione su scale \textit{logaritmiche}.
+Proprietà utili del logaritmo sono le seguenti:
+\begin{itemize}
+ \item [] Somma e differenza: $Y = aX/b \Rightarrow \log(Y) = \log(a) + \log(X) - \log(b) $
+ \item [] Prodotto per uno scalare: $Y = 10^x \Rightarrow \log(Y) = x\log(10) $
+\end{itemize}
+
+È stato poi introdotto il ``decibel'' definito come:
+$$\si{dB}(x) = 10\log_{10}x $$
+Spesso si utilizza il deciBel per esprimere un guadagno o un'attenuazione di un amplificatore o un'antenna,
+questa unità rappresenta quindi il rapporto tra due grandezze, in genere uscita e ingresso.
+Se si indica un rapporto fra potenze continua a valere la precedente definizione ma per comodità
+se la resistenza di ingresso dell'amplificatore e quella in uscita hanno lo stesso valore, si può ricavare
+la seguente forma del deciBel più comoda e valida solo per le tensioni:
+
+$$G_{P,\si{dB}} = 10\log_{10}\left(\frac{P_{out}}{P_{in}} \right) = 
+10\log_{10}\left( \frac{V_{out}^2}{R_{out}}\frac{R_{in}}{V_{in}^2} \right) \stackrel{R_{in} = R_{out}}{=}
+20\log_{10}\left(\frac{V_{out}}{V_{in}}\right) = G_{V,\si{dB}} $$
+
+L'ampiezza della dinamica, utilizzando il deciBel diventa:
+$$10^8 \Rightarrow 20\log_{10}10^8 = 160$$
+in questo modo è molto più semplice rappresentare tali valori su una scala o un grafico.
+Storicamente l'utilizzo del deciBel è nato dalla necessità dei costruttori di dispositivi audio di indicare
+i livelli di volume sonoro e disturbo dato che anche l'orecchio umano percepisce i suoni con una funzione
+logaritmica, tendendo ad attenuare i volumi elevati.
+
+Altre forme del deciBel utilizzate sono quelle che fanno riferimento ad un valore fisso,
+ad esempio il $\si{dB}\mu V = 20\log_{10}\frac{V}{1 \mu V}$ si indica quindi in deciBel, quanto la tensione
+misurata è più grande (o più piccola) rispetto al \textit{microVolt}.
+
+Per le potenze è spesso utile il $\si{dB}mW $ abbreviato $\si{dB}m = 10\log_{10}\frac{W}{1 mW}$.
+
+\paragraph{Esempio potenza in antenna}
+Potenza fornita ad un'antenna in funzione del campo elettrico emesso
+$$P_T = G_T \frac{\lambda^2}{4\pi}\frac{E_T^2}{Z_0}$$
+Supponiamo una variazione di $6 \si{dB}$ della potenza in antenna, a quanto corrisponde numericamente?
+$$6\si{dB} = 10\log_{10}\left(\frac{P_2}{P_1} \right) = 10\log_{10}\left(\frac{E_2}{E_1}\right)^2 =
+20\log_{10}\left(\frac{E_2}{E_1}\right) \Rightarrow$$
+
+$$\Rightarrow
+\begin{cases}
+P_2 = 10^{\frac{6}{10}}\cdot P_1 \approx 4\cdot P_1 \\
+E_2 = 10^{\frac{6}{20}}\cdot E_1 \approx 2\cdot E_1
+\end{cases}
+$$
+
+Il guadagno è sempre adimensionale perchè esprime il rapporto tra grandezze identiche.
+
+\paragraph{Propagazione in linea di trasmissione}
+
