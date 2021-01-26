@@ -1,0 +1,27 @@
+\section{Sorgenti e ricevitori di segnale}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[t]{0.3\textwidth}
+\begin{circuitikz}
+\draw
+(0,0) to [sinusoidal voltage source, l=$V_s$] (0,2)
+        to [resistor,-o,l_=$50 \si{\ohm}$] (3,2)
+(0,0) to [short , -o] (3,0)
+;
+\end{circuitikz}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.3\textwidth}
+\begin{circuitikz}
+\draw
+(0,0) to [open, o-o] (0,2)
+        to [short] (4,2)
+        to [resistor , l=$R_{in}\ 50\si{\ohm}$] (4,0)
+        to [short] (0,0)
+(3,0)   to [capacitor, l=\SI{0.47}{\pico\farad}] (3,2)
+;
+\end{circuitikz}
+
+\end{subfigure}
+\end{figure}
