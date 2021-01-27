@@ -1,5 +1,6 @@
 \section{Sorgenti e ricevitori di segnale}
-
+È possibile rappresentare con dei circuiti equivalenti le sorgenti dei disturbi
+e il ricevitore di interferenza 
 \begin{figure}[h]
 \centering
 \begin{subfigure}[t]{0.4\textwidth}
@@ -22,11 +23,12 @@
         to [short] (3.5,2)
         to [resistor , l=\parbox{2cm}{$R_{in}\\ \SI{50}{\ohm}$}] (3.5,0)
         to [short] (0,0)
-(2.5,0)   to [capacitor, l=\parbox{1.1cm}{\flushright $C_{in}$\\ \SI{0.47}{\pico\farad}}] (2.5,2)
+(2.5,0)   to [capacitor, l=\parbox{2.3cm}{\flushright $C_{in}$ \\ $0\sim\ $\SI{47}{\pico\farad}}] (2.5,2)
 ;
-\draw [dashed] (0.7,-0.3) rectangle (4.6,2.25)
+\draw [dashed] (0.55,-0.3) rectangle (4.6,2.25)
 ;
 \end{circuitikz}
 \caption{Ricevitore di segnale}
 \end{subfigure}
+\caption{Circuiti equivalenti}
 \end{figure}
