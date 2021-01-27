@@ -2,26 +2,31 @@
 
 \begin{figure}[h]
 \centering
-\begin{subfigure}[t]{0.3\textwidth}
+\begin{subfigure}[t]{0.4\textwidth}
 \begin{circuitikz}
 \draw
 (0,0) to [sinusoidal voltage source, l=$V_s$] (0,2)
-        to [resistor,-o,l_=$50 \si{\ohm}$] (3,2)
-(0,0) to [short , -o] (3,0)
+        to [resistor,-o,l=\mbox{$R_s$}, a=\SI{50}{\ohm}] (3.5,2)
+(0,0) to [short , -o] (3.5,0)
+;
+\draw [dashed] (-0.5,-0.3) rectangle (3,2.25)
 ;
 \end{circuitikz}
+\caption{Generatore di disturbi}
 \end{subfigure}
-\hfill
-\begin{subfigure}[t]{0.3\textwidth}
+\ 
+\begin{subfigure}[t]{0.4\textwidth}
 \begin{circuitikz}
 \draw
 (0,0) to [open, o-o] (0,2)
-        to [short] (4,2)
-        to [resistor , l=$R_{in}\ 50\si{\ohm}$] (4,0)
+        to [short] (3.5,2)
+        to [resistor , l=\parbox{2cm}{$R_{in}\\ \SI{50}{\ohm}$}] (3.5,0)
         to [short] (0,0)
-(3,0)   to [capacitor, l=\SI{0.47}{\pico\farad}] (3,2)
+(2.5,0)   to [capacitor, l=\parbox{1.1cm}{\flushright $C_{in}$\\ \SI{0.47}{\pico\farad}}] (2.5,2)
+;
+\draw [dashed] (0.7,-0.3) rectangle (4.6,2.25)
 ;
 \end{circuitikz}
-
+\caption{Ricevitore di segnale}
 \end{subfigure}
 \end{figure}
