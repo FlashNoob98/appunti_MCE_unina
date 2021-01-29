@@ -1,0 +1,28 @@
+
+Un filtro con risposta in frequenza molto stretta, richiede una risposta nel tempo
+molto ampia, ossia richiede molto tempo per andare a regime.
+
+Fissata una RBW del filtro intermedio a \SI{3}{\decibel}, si avrà in uscita
+un segnale composto dalla $f_{\text{if}}$ e da alcune componenti laterali, ossia
+un segnale modulato in ampiezza la cui portante è proprio la $f_{\text{if}}$.
+L'unione dei picchi nel tempo del segnale viene chiamato \textbf{inviluppo} del segnale,
+è in realtà la parte ``interessante'' del segnale che viene infatti inviato
+al \textit{rivelatore di inviluppo} che trasforma il segnale modulato nel suo inviluppo.
+
+\begin{figure}[h]
+\centering
+ \begin{circuitikz}[american voltages]
+ \draw
+ (0,2) to [full diode,o-] (2,2)
+       to [resistor] (2,0)
+ (0,0) to [short, o-] (2,0)
+ ;
+ \draw
+ (-0.5,2) to [open, v=$V_{\text{in}}$] (-0.5,0)
+ (2.6,2) to [open, v^>=$V_{\text{out}}$] (2.6,0)
+ ;
+ \end{circuitikz}
+ \caption{Rivelatore di inviluppo}
+\end{figure}
+
+
