@@ -1,6 +1,6 @@
 \section{Sorgenti e ricevitori di segnale}
 È possibile rappresentare con dei circuiti equivalenti le sorgenti dei disturbi
-e il ricevitore di interferenza 
+e il ricevitore di interferenza
 \begin{figure}[h]
 \centering
 \begin{subfigure}[t]{0.4\textwidth}
@@ -32,3 +32,45 @@ e il ricevitore di interferenza
 \end{subfigure}
 \caption{Circuiti equivalenti}
 \end{figure}
+
+La capacità presente nel circuito schematico del ricevitore, schematizza la capacità
+parassita dovuta al tipo di schermatura del cavo coassiale che può
+essere vista come un condensatore cilindrico.
+Le indicazioni fornite dal generatore sulla tensione fornita, sono quelle
+nel caso di carico adattato a \SI{50}{\ohm}.
+
+% in caso di carico adattato, la tensione sul ricevitore non dipende
+% dalla lunghezza del cavo VEDI impedenza caratteristica del cavo
+\section{Ricevitore di interferenze}
+Per analizzare un segnale di disturbo, è necessario studiarne le componenti
+in frequenza, ogni strumento di misura ha un filtro in ingresso
+con una determinata ``\textit{Resolution BandWidth}'' (RBW) ossia l'ampiezza
+di banda che il filtro è in grado di analizzare; per studiare l'intero segnale
+è necessario ``scorrere'' l'intero segnale lungo la sua intera banda.
+
+Sorge un problema, la risoluzione relativa è definita come $\frac{\text{RBW}}{f} $
+dove $f$ è la frequenza del segnale analizzato, un filtro con RBW fissata ad esempio 
+ad \SI{1}{\kilo\hertz} dovrebbe essere in grado anche di 
+analizzare segnali nell'ordine del \SI{}{\giga\hertz}, ma la risoluzione relativa
+sarebbe dell'ordine di $10^{-6}$, sicuramente un requisito troppo stringente.
+
+La soluzione a questo problema è stata quella di utilizzare il ricevitore
+a \textbf{supereterodina}, piuttosto che spostare la frequenza di lavoro del filtro 
+si preferisce traslare il segnale mediante l'utilizzo di un \textbf{mixer}.
+
+La funzione del mixer è quella di ``moltiplicare'' il segnale in ingresso
+per un segnale sinusoidale a frequenza fissata, generata con 
+un \textit{oscillatore locale},
+il risultato sarà una coppia di segnali,
+uno con frequenza pari alla somma della frequenza del segnale in ingresso e quella
+fornita dall'oscillatore, l'altro pari alla differenza fra le due,
+in particolare si riporta la prima formula di Werner che dimostra quanto 
+appena affermato:
+$$
+\sin\alpha\cos\beta = \frac{1}{2} \left[\sin(\alpha+\beta)+\sin(\alpha-\beta)\right]
+$$
+
+Si \textit{pilota} dunque la frequenza $f_{\text{lo}}$ dell'oscillatore locale
+affinché $f_x - f_{\text{lo}} = f_{\text{if}}$ con $f_{\text{if}}$ pari alla
+frequenza del filtro a frequenza intermedia in ingresso.
+
