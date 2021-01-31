@@ -9,7 +9,7 @@ L'unione dei picchi nel tempo del segnale viene chiamato \textbf{inviluppo} del 
 è in realtà la parte ``interessante'' del segnale che viene infatti inviato
 al \textit{rivelatore di inviluppo} che trasforma il segnale modulato nel suo inviluppo.
 
-\begin{figure}[h]
+\begin{figure}[h] %ricevitore di inviluppo
 \centering
  \begin{circuitikz}[american voltages]
  \draw
@@ -25,4 +25,70 @@ al \textit{rivelatore di inviluppo} che trasforma il segnale modulato nel suo in
  \caption{Rivelatore di inviluppo}
 \end{figure}
 
+Quando si ricostruisce il contenuto spettrale del segnale, viene riportato il
+valore efficace dell'ampiezza del segnale ad ogni singola frequenza di interesse,
+in realtà il valore visualizzato è la somma dei contributi dati dalla componente
+in quella frequenza e dalle frequenze \textit{laterali} che rientrano nella 
+\textit{Resolution BandWidth}.
 
+Il primo parametro importante da determinare nell'analisi di un segnale
+di disturbo è la sua ampiezza massima nel tempo, ossia il suo valore di \textbf{picco}.
+L'inviluppo di un segnale infatti può essere variabile nel tempo.
+
+Per questo motivo
+il segnale ottenuto con il rilevatore di inviluppo viene inviato ad un filtro passa-basso
+comunemente chiamato \textit{Video Pass Bandwidth}, viene quindi eseguita
+la media dell'inviluppo. L'ampiezza di banda del filtro passa basso determina
+il tempo necessario ad ottenere il valore di media.
+
+Due segnali con lo stesso valore di picco possono però avere inviluppi differenti
+in base alla frequenza con la quale il disturbo colpisce il rilevatore.
+
+\begin{figure}[h] %2 circuiti con stesso picco ma periodicità differenti
+ \centering
+ \begin{subfigure}[t]{0.3\textwidth}
+  \begin{circuitikz}
+   \draw (0,0)[->] -- (4,0) node[right]{$t$};
+   \draw (0,0)[->] -- (0,2) node[left]{$A(t)$};
+   \draw (0.1,0) \foreach \k in {0,...,8} { let \n1={1.8*(-2*mod(\k,2) + 1)}
+   in -- ++(0,\n1) -- ++(0.4,0)};
+   \draw (3.7,0) -- (3.7,1.8);
+  \end{circuitikz}
+  \caption{}
+  \label{fig:segnale_alta_periodicità}
+ \end{subfigure}
+ \quad \quad \quad
+ \begin{subfigure}[t]{0.3\textwidth}
+  \begin{circuitikz}
+   \draw (0,0)[->] -- (4,0) node[right]{$t$};
+   \draw (0,0)[->] -- (0,2) node[left]{$A(t)$};
+   \draw (0.1,0) \foreach \k in {0,1} { let \n1={1.8*(-2*mod(\k,2) + 1)}
+   in -- ++(0,\n1) -- ++(0.4,0)};
+   
+   \draw (1.7,0) \foreach \k in {0,1} { let \n1={1.8*(-2*mod(\k,2) + 1)}
+   in -- ++(0,\n1) -- ++(0.4,0)};
+  
+  \draw (3.3,0) \foreach \k in {0} { let \n1={1.8*(-2*mod(\k,2) + 1)}
+   in -- ++(0,\n1) -- ++(0.4,0)};
+  \draw (3.7,0) -- (3.7,1.8);
+  \end{circuitikz}
+  \caption{}
+  \label{fig:segnale_bassa_periodicità}
+ \end{subfigure}
+ \caption{}
+\end{figure}
+
+Come si vede il segnale in figura \ref{fig:segnale_alta_periodicità} ha un peso 
+maggiore rispetto a quello in figura \ref{fig:segnale_bassa_periodicità} dato
+che colpisce il ricevitore un numero maggiore di volte nella stessa unità
+di tempo.
+Il rivelatore di picco non è quindi in grado di discernere la differenza tra i due
+segnali.
+
+Si definisce quindi il valore di \textbf{Quasi Picco} quello ottenuto con l'aggiunta
+di un condensatore in parallelo alla resistenza del rilevatore di picco, se ne riporta
+al display del misuratore il suo valore medio.
+
+La visualizzazione dei valori sul display viene pilotato mediante un generatore
+di rampa che permette la traslazione della frequenza dell'oscillatore locale
+e la traslazione sull'asse delle frequenze dello schermo.
