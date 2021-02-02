@@ -1,0 +1,114 @@
+\section{Analizzatore di spettro o ricevitore di interferenza?}
+Si elencano le principali differenze tra i due strumenti principali
+utilizzati nella misura dei disturbi: l'\textbf{analizzatore di spettro} e il \textbf{ricevitore di interferenze}.
+
+\begin{center}%tabella emi receiver vs spectrum analyzer
+{
+\setlength\arrayrulewidth{1.5pt}
+\begin{tabular}{|>{\centering}p{4cm}|>{\centering}p{4cm}|p{4cm}<{\centering}|}
+ \rowcolor{blue}
+ \hline
+  \color{white}\textbf{Parametro}&\color{white}\textbf{Spectrum analyzer} &\color{white} \textbf{EMI receiver} \\
+  \hline
+  Principio di funzionamento & Spazzolata (sweeped) & Frequenze discrete (\textit{tuned}) \\
+  \hline 
+  RBW [\si{\kilo\hertz}] &1, 3, 10, 30, 100, ... & 0.2, 9, 120 \\
+  \hline
+  Banda & \SI{3}{\decibel} & \SI{6}{\decibel} \\
+  \hline
+  Rivelatore & Pk & (Pk), QP, AVG\\
+  \hline
+  Selettività e preamplificazione & $-$ & $+$ \\
+  \hline
+  Accuracy (A \& f) & $-$ & $+$ \\
+  \hline
+  Resistenza all'overload & $\sim$ & $+$ \\
+  \hline
+  Costo & $-$ & $++$ \\
+  \hline
+  Applicazioni & Pre compliance & Full compliance \\
+  \hline
+\end{tabular}
+}
+\end{center}
+
+La definizione di \textit{banda} per i due strumenti è differente,
+nell'\textit{analizzatore di spettro} la \textit{resolution bandwidth} 
+è l'ampiezza dell'intervallo i cui valori vengono attenuati ad una differenza di massimo 
+\SI{3}{\decibel} dal valore
+del segnale alla frequenza centrale del filtro.
+Questo valore nel \textit{ricevitore di interferenze} è pari a \SI{6}{\decibel}.
+
+L'analizzatore di spettro esegue un'analisi rapida, riportando solo
+il valore di picco dell'inviluppo. L'EMI receiver
+dispone anche dei rilevatori di QuasiPicco ed Average, il rivelatore
+di Picco non è necessario al fine delle verifiche in campo civile.
+
+La \textbf{selettività} indica quanto rapidamente un filtro tende
+a 0, anche se 2 filtri hanno la stessa RBW, i valori al di fuori della banda
+possono attenuarsi con pendenze diverse.
+La \textbf{preamplificazione} è necessaria alla corretta analisi di segnali
+di disturbo ad una determinata frequenza che, se di ampiezza bassa, possono
+essere confusi con il rumore di fondo dal rilevatore.
+
+L'\textbf{accuracy} è maggiore nell'EMI receiver.
+La resistenza all'\textbf{overload} è la resistenza al sovraccarico
+degli stadi di ingresso, l'analizzatore di spettro non prevede
+segnali in ingresso distruttivi dato che viene prevalentemente usato in 
+ambienti controllati o comunque con segnali noti, cosa non vera
+per l'EMI receiver, con il quale si misurano disturbi di cui non 
+conosciamo preventivamente l'entità.
+
+Il costo di un EMI receiver è molto più alto di quello
+di un analizzatore di spettro.
+L'analizzatore di spettro permette l'esecuzione
+di prove pre-compliance, utili ad avere un'idea dei
+possibili problemi di compatibilità, per aver la conformità
+alla direttiva è invece necessario il ricevitore di interferenze.
+
+Come si è visto la differenza principale tra i due strumenti consta nella 
+selettività e nella preamplificazione, nell'EMI receiver
+infatti, in aggiunta a quanto presente anche nell'analizzatore di spettro
+è necessario aggiungere un \underline{attenuatore} contro gli 
+overload e un \underline{filtro passabanda} necessario a limitare la potenza
+in ingresso al mixer per ridurre al minimo gli errori dovuti alla non linearità.
+Deve essere inoltre presente un \underline{preamplificatore} necessario ad
+innalzare il valore di segnali particolarmente bassi.
+
+Il \underline{preselettore} deve lavorare su ampie gamme di frequenze e non
+è richiesto che sia molto stretto, deve solo limitare l'energia
+in ingresso al mixer, non svolge alcuna funzione di misura.
+
+\paragraph{Rivelatore di Picco e QuasiPicco}
+Il seguente circuito rappresenta uno schema del rivelatore di Picco o di QuasiPicco,
+la differenza tra i due rivelatori si ottiene modificando opportunamente la resistenza
+di scarica $R_d$.
+
+\begin{figure}[h] %rivelatore di picco
+\centering
+ \begin{circuitikz}[american voltages]
+ \draw
+ (0,2) to [full diode,o-,v=$V_d$] (2,2)
+       to [resistor,l=$R_c$] (4,2)
+       to [capacitor,l=$C$] (4,0)
+ (4,2) to [short,-o] (7,2)   
+ (6,2) to [resistor,l=$R_d$] (6,0)
+ (0,0) to [short, o-o] (7,0)
+ ;
+ \draw
+ (-0.5,2) to [open, v=$V_{\text{in}}$] (-0.5,0)
+ (7.6,2) to [open, v^>=$V_{\text{out}}$] (7.6,0)
+ ;
+ \end{circuitikz}
+ \caption{Rivelatore di picco}
+\end{figure}
+
+Il rivelatore di Picco ha una resistenza di scarica $R_d$ molto elevata,
+il rivelatore di quasipicco invece ha una resistenza di valore confrontabile
+con quello della resistenza di carica $R_c$.
+
+Bisogna tenere in considerazione il tempo di misura affinché i valori
+misurati, rispettivamente di picco o quasipicco, siano
+effettivamente i massimi valori assunti dal segnale e bisogna assicurarsi che
+i rivelatori siano andati a regime, i tempi di misura per ogni frequenza possono
+essere anche dell'ordine delle centinaia di millisecondi.
