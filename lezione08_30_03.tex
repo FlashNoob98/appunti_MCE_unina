@@ -1,0 +1,54 @@
+\paragraph{Rivelatore di media}
+Il seguente rivelatore si ottiene aggiungendo al rivelatore di QuasiPicco 
+un filtro passa-basso.
+
+\begin{figure}[h] %rivelatore di media
+\centering
+ \begin{circuitikz}[american voltages]
+ \draw
+ (0,2) to [full diode,o-,v=$V_d$] (2,2)
+       to [resistor,l=$R_c$] (4,2)
+       to [capacitor,l=$C$] (4,0)
+ (4,2) to [short] (6,2)   
+ (6,2) to [resistor,l=$R_d$] (6,0)
+ (6,2) to [resistor] (9,2)
+       to [short, -o] (10,2)
+ (9,0) to [variable capacitor] (9,2)      
+ (0,0) to [short, o-o] (10,0)
+ ;
+ \draw
+ (-0.5,2) to [open, v=$V_{\text{in}}$] (-0.5,0)
+ (10.6,2) to [open, v^>=$V_{\text{out}}$] (10.6,0)
+ ;
+ \draw [dashed] (6.8,-0.3) rectangle (9.6,2.3);
+ \end{circuitikz}
+ \caption{Rivelatore di media}
+\end{figure}
+
+Al variare della capacità variabile presente nel
+filtro passa-basso si seleziona la frequenza da analizzare.
+
+%\section{Caratteristiche dei rivelatori}
+Le caratteristiche dei rivelatori di QuasiPicco e Media sono riportate nella norma
+CISPR 16-1 (EN55016), le informazioni riguardo il rivelatore di Picco sono meno
+dettagliate.
+Se i valori misurati dal rilevatore di picco e QuasiPicco
+coincidono, si può affermare che l'inviluppo del segnale è costante, ossia il
+segnale è a onda continua, anche il rilevatore di media indicherà lo stesso valore.
+
+\begin{center} %tabella parametri cispr 16
+ \begin{tabular}{|>{\centering}p{3cm}|>{\centering}p{3cm}|>{\centering}p{3cm}|p{3cm}<{\centering}|}
+  \hline
+  \multicolumn{4}{|c|}{Banda CISPR} \\
+  \hline
+  &Banda A $9\sim150$\si{\kilo\hertz} & Banda B $0.15\sim30$\si{\mega\hertz} & Banda C $+$ D $30\sim300\sim1000$ \si{\mega\hertz} \\ \hline
+  Ampiezza di banda \SI{-6}{\decibel} [\si{\kilo\hertz}] & 0.20 & 9 & 120 \\ \hline
+  Costante di \underline{carica} [\si{\milli\second}]   & 45   & 1 & 1 \\ \hline
+  Costante di \underline{scarica} [\si{\milli\second}]  & 500  & 160 & 550 \\ \hline
+  \rowcolor{yellow}
+  Costante meccanica [\si{\milli\second}] & 160 & 160 & 100 \\ \hline
+ \end{tabular}
+\end{center}
+
+Al di sopra della frequenza di \SI{30}{\mega\hertz} si considerano i disturbi
+come radiati.
