@@ -59,5 +59,28 @@ La costante meccanica è ciò che trasforma un segnale variabile
 nel tempo in un segnale costante, ossia rappresenta la costante di tempo
 di uno smorzatore meccanico equivalente. La somma di tutti e 3 i tempi 
 permette di calcolare la costante di tempo dell'intero rilevatore 
-affinchè la misura sia corretta.
+affinché la misura sia corretta.
 
+\paragraph{Filtro a frequenza intermedia}
+La figura \ref{fig:filtro_IF} riporta la risposta del filtro a frequenza intermedia con ampiezza
+di banda pari a \SI{120}{\kilo\hertz} centrato su una frequenza generica.
+\begin{figure}[h]
+\centering
+ \includegraphics[width=0.6\linewidth]{IF_response}
+ \caption{Risposta del filtro IF con ampiezza \SI{120}{\kilo\hertz} (banda \SI{30}{\mega\hertz} $\sim$ \SI{1}{\giga\hertz})}
+ \label{fig:filtro_IF}
+\end{figure}
+
+L'asse verticale riporta \textit{l'ingresso relativo per un output costante}.
+La maschera rossa è quella imposta dalla norma, la curva verde è solo
+una possibile risposta del filtro, si può notare come la maschera
+\textit{``stringa''} la curva alla frequenza di $\pm$ \SI{60}{\kilo\hertz}
+per definire in maniera accurata la banda di \SI{120}{\kilo\hertz} a \SI{-6}{\decibel}.
+
+Viene riportata la maschera fino a \SI{20}{\decibel} per verificare anche la selettività
+del filtro, come si nota c'è un ampio margine lasciato al produttore del filtro.
+Per permettere la realizzazione di filtri più selettivi, è consentita
+una sovraelongazione fino a \SI{1.5}{\decibel} nell'intorno della frequenza centrale.
+
+Il \textbf{rilevatore di media}, mediante il filtro passa-basso permette la rilevazione di componenti ad onda
+continua in segnali a banda larga, ossia segnali sinusoidali puri.
