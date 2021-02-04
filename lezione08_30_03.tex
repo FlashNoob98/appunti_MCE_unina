@@ -37,7 +37,7 @@ coincidono, si può affermare che l'inviluppo del segnale è costante, ossia il
 segnale è a onda continua, anche il rilevatore di media indicherà lo stesso valore.
 
 \begin{center} %tabella parametri cispr 16
- \begin{tabular}{|>{\centering}p{3cm}|>{\centering}p{3cm}|>{\centering}p{3cm}|p{3cm}<{\centering}|}
+ \begin{tabular}{|>{\centering}m{3cm}|>{\centering}m{3cm}|>{\centering}m{3cm}|m{3cm}<{\centering}|}
   \hline
   \multicolumn{4}{|c|}{Banda CISPR} \\
   \hline
@@ -47,8 +47,17 @@ segnale è a onda continua, anche il rilevatore di media indicherà lo stesso va
   Costante di \underline{scarica} [\si{\milli\second}]  & 500  & 160 & 550 \\ \hline
   \rowcolor{yellow}
   Costante meccanica [\si{\milli\second}] & 160 & 160 & 100 \\ \hline
+  Fattore di sovraccarico dei circuiti che precedono il rilevatore [\si{\decibel}] & 24  & 30  & 43.5 \\ \hline
+  Fattore di sovraccarico tra l'amplificatore a valle e lo strumento indicatore [\si{\decibel}] &  6 &  12 & 6 \\ \hline
  \end{tabular}
 \end{center}
 
 Al di sopra della frequenza di \SI{30}{\mega\hertz} si considerano i disturbi
 come radiati.
+
+La costante meccanica è ciò che trasforma un segnale variabile
+nel tempo in un segnale costante, ossia rappresenta la costante di tempo
+di uno smorzatore meccanico equivalente. La somma di tutti e 3 i tempi 
+permette di calcolare la costante di tempo dell'intero rilevatore 
+affinchè la misura sia corretta.
+
