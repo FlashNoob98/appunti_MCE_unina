@@ -76,9 +76,6 @@ Si definisce inoltre la risposta agli impulsi di area
 pari a $1.4/B_{\text{imp}}$ \si{\milli\volt\second} che deve essere pari a quella
 fornita per un segnale sinusoidale di valore efficace \SI{2}{\milli\volt} (\SI{66}{\decibel\micro\volt})
 
-
-
-
 \begin{table}[h] %tabella risposta agli impulsi Picco table generated on tablesgenerator.com
 \centering
 %\resizebox{\textwidth}{!}{%
@@ -95,4 +92,42 @@ Band C + D                 & $0.011\cdot10^{-3}$       & $126.0\cdot10^3$  & $-$
 %}
 \end{table}
 
+Come si vede in tabella, il rilevatore di picco viene confrontato con un rilevatore
+di quasi-picco già conforme alle norme CISPR.
+
+Anche per quanto riguarda il rilevatore di \textbf{media} viene utilizzata una tabella
+con i parametri dell'ampiezza di banda del rivelatore.
+
+\begin{center} %tabella parametri banda media
+ \begin{tabular}{|>{\centering}m{5cm}|>{\centering}m{3.2cm}|m{3.2cm}<{\centering}|}
+  \hline
+    \textbf{Frequency range} & \textbf{Bandwidth $B_6$} & \textbf{Reference BW}  \\ \hline
+    \SI{9}{\kilo\hertz}   to \SI{150}{\kilo\hertz}  (A)   & \SI{100}{\hertz}      to \SI{300}{\hertz}      & \SI{200}{\hertz}      \\ \hline
+    \SI{150}{\kilo\hertz} to \SI{30}{\mega\hertz}   (B)   & \SI{8}{\kilo\hertz}   to \SI{10}{\kilo\hertz}  & \SI{9}{\kilo\hertz}   \\ \hline
+    \SI{30}{\mega\hertz}  to \SI{1000}{\mega\hertz} (C+D) & \SI{100}{\kilo\hertz} to \SI{500}{\kilo\hertz} & \SI{120}{\kilo\hertz} \\ \hline
+    \SI{3}{\giga\hertz}   to \SI{18}{\giga\hertz}   (E)   & \SI{300}{\kilo\hertz} to \SI{2}{\mega\hertz}   & \SI{1}{\mega\hertz}   \\ \hline
+ \end{tabular}
+\end{center}
+
+Per quanto riguarda la calibrazione in ampiezza invece, per impulsi di area pari a 
+1.4/n \si{\milli\volt\second} con frequenza di ripetizione pari a n \si{\hertz},
+la risposta deve essere pari a quella fornita per un segnale sinusoidale di valore efficace
+pari a 2 \si{\milli\volt} (\SI{66}{\decibel\micro\volt}).
+
+\begin{table}[h] %tabella risposta agli impulsi Media (sempre su tablesgenerator.com) Non impazzire con il codice di latex!!!
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{Frequency} & \multicolumn{5}{c|}{\multirow{2}{*}{Ratio quasi-peak/average (\si{\decibel}) for pulse repetition rate}} \\
+                           & \multicolumn{5}{c|}{}                                                                                 \\ \cline{2-6} 
+                           & \SI{25}{\hertz}    & \SI{100}{\hertz}   & \SI{500}{\hertz}   & \SI{1000}{\hertz}  & \SI{5000}{\hertz} \\ \hline
+Band A                     & 12.4               &                    &                    &                    &                   \\ \hline
+Band B                     &                    & (32.9)             & 22.9               & (17.4)             &                   \\ \hline
+Band C + D                 &                    &                    &                    & (38.1)             & 26.3              \\ \hline
+\end{tabular}
+\end{table}
+
+Le caratteristiche comuni dell'ampiezza di banda permettono ai costruttori degli strumenti
+di misura di realizzare un unico filtro a frequenza intermedia con le stesse
+caratteristiche per tutte e tre le tipologie di misura.
 
