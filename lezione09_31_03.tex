@@ -131,3 +131,26 @@ Le caratteristiche comuni dell'ampiezza di banda permettono ai costruttori degli
 di misura di realizzare un unico filtro a frequenza intermedia con le stesse
 caratteristiche per tutte e tre le tipologie di misura.
 
+Il rilevatore di picco rileva sempre l'impulso di ampiezza maggiore, a prescindere
+dal numero di impulsi ricevuti, diversamente il quasi-picco è sensibile al numero di impulsi rilevati.
+La curva del rivelatore di average invece pesa gli impulsi proporzionalmente alla frequenza.
+
+Il tempo di misura si riferisce alla misura di una \textit{singola} frequenza,
+anche in un analizzatore di spettro, il filtro permane per una certa quantità di tempo
+sulla singola frequenza. L'intervallo di frequenze si chiama \textbf{span} mentre 
+il tempo necessario ad analizzare tutte le frequenze si chiama \textbf{sweep time}.
+Lo scan rate è quindi così definito:
+$$
+ \text{scan rate} = \frac{\text{span}}{\text{sweep time}}
+$$
+Altro elemento importante nell'analisi spettrale è la \textit{resolution bandwidth}.
+Il tempo necessario a ricavare una misura è limitato proprio dal tempo di regime
+del filtro intermedio.
+
+Se ad esempio si richiede al rilevatore di picco un tempo di misura
+superiore a \SI{100}{\milli\second}, lo strumento effettua comunque una misura
+ogni \SI{100}{\milli\second} e restituirà il massimo valore acquisito.
+Nel caso del rilevatore di media, se si imposta un tempo di misura superiore
+a \SI{100}{\milli\second}, i risultati verranno mediati numericamente con
+un convertitore analogico-digitale.
+
