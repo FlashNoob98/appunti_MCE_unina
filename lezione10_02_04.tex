@@ -1,0 +1,47 @@
+
+\section{Segnali a banda stretta e banda larga}
+Si definisce segnale a \textit{banda stretta} per antonomasia, un segnale sinusoidale
+con una sola componente spettrale ma in generale
+si definisce un segnale a banda stretta se il suo contenuto spettrale
+sia interamente contenuto nella banda del filtro a frequenza intermedia.
+Se il suo contenuto spettrale è al di fuori dell'ampiezza del filtro,
+viene definito segnale a \textit{banda larga}.
+
+Sia dato un segnale ad onda quadra così definito:
+$$
+x(t) = \sum_{k = -\infty}^{+\infty} A\cdot p\left(\frac{t-kT}{\tau}\right)
+$$
+
+La sua trasformata di Fourier è la seguente:
+$$
+x(f) = 2 \frac{A\tau}{T} \sum_{k=-\infty}^{+\infty} \text{sinc} \left(\pi \frac{k\tau}{T}\cdot  \delta\left(f-\frac{k}{T}\right)  \right)
+$$
+
+ossia un treno di impulsi con una distanza pari a $1/T$ e modulati
+da una \textit{sinc} con impulsi che si azzerano in multipli di $1/\tau$.
+
+Supponiamo di analizzare un segnale composto da impulsi ad onda quadra,
+analizziamo l'intero spettro in un certo tempo $t$ definito come \textit{sweep time}
+ossia il tempo necessario a passare dalla frequenza minima a quella massima,
+il segnale però è presente soltanto durante la presenza dell'impulso.
+
+%%grafico linee scansione sweep time
+
+Supponiamo di avere uno sweep time multiplo n-esimo
+del tempo di ripetizione del segnale, rileveremo con una sola ``sweppata''
+soltanto alcune frequenze, le frequenze analizzate durante il periodo di \textit{off}
+del segnale, essa non verrà rilevata, l'esito dell'analisi sarà quindi povera di campioni,
+la sua ricostruzione non restituirebbe il segnale originale.
+
+Per ovviare a questo problema si può ridurre lo sweep time ed effettuare più scansioni
+ripetute, conservando tutti i campioni raccolti si può (dopo un numero significativo di sweeppate)
+ricostruire il segnale di partenza. Si può anche supporre che il tempo totale necessario ad effettuare
+la misura sia lo stesso.
+Si può inoltre affermare che il segnale sia di tipo ``impulsivo'' data l'assenza di campioni in
+alcune misurazioni, determinato ciò, vanno determinati $T$ e $\tau$.
+$T$ è la distanza tra 2 impulsi, utilizzando il grafico ottenuto con lo sweep lungo,
+possiamo ricavare $T$ con la seguente:
+$$
+    \frac{\text{SWT}}{\text{SPAN}} = \frac{T}{\Delta f} \Rightarrow T = \frac{\text{SWT}\cdot\Delta f}{\text{SPAN}}
+$$
+%%% 1:00:30
