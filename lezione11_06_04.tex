@@ -1,0 +1,91 @@
+
+\paragraph{EMI receiver}
+
+Questo dispositivo lavora con frequenze discrete, seleziona
+una frequenza ed esegue la misura, poi l'oscillatore locale
+avanza di una frequenza pari a $RBW/2$ ovvero mezza Resolution Bandwidth,
+il tempo necessario ad eseguire la misura è molto maggiore a causa dei tempi
+tipici dei vari rivelatori.
+
+il \textit{Test della resolution bandwidth} permette di determinare
+se il segnale è a banda stretta o larga, se il segnale è a banda stretta, il valore
+misurato non dipende dall'ampiezza della Resolution Bandwidth (a meno del rumore addizionale),
+nel caso di segnale a banda larga invece possiamo determinare un valore della Resolution Bandwidth oltre
+il quale l'ampiezza non varia ulteriormente.
+Questa procedura non è comunque esaustiva al fine della determinazione delle caratteristiche di 
+ampiezza di banda del segnale.
+%% inserisci figura 0:31
+
+Un altro metodo è il confronto tra i valori dei rivelatori di picco e media,
+il rivelatore di picco è sensibile a tutta la potenza del segnale presente nella
+resolution bandwidth, mentre il rivelatore di average è sensibile prevalentemente al peso
+del segnale alla frequenza centrale del filtro, se il valore di picco è superiore di \SI{6}{\decibel}
+rispetto al valore di media, allora il segnale sarà a banda larga, se questa differenza
+è inferiore a \SI{6}{\decibel} allora sarà a banda stretta.
+
+\section{Disturbi radiati e disturbi condotti}
+Esistono in Europa due range di frequenze per caratterizzare i disturbi radiati:
+\begin{itemize}
+ \item [FCC:] \SI{30}{\mega\hertz} ($\lambda = $ \SI{10}{\meter}) $\rightarrow$ \SI{40}{\giga\hertz} ($\lambda = $ \SI{7,5}{\milli\meter})
+ \item [CISPR:] \SI{30}{\mega\hertz} ($\lambda = $ \SI{10}{\meter}) $\rightarrow$ \SI{1}{\giga\hertz} ($\lambda =$ \SI{30}{\centi\meter})
+\end{itemize}
+
+Entrambi gli enti normativi definiscono 2 categorie di oggetti da sottoporre a prove di compatibilità elettromagnetica,
+\begin{itemize}
+ \item [Classe A:] destinati all'industria pesante
+ \item [Classe B:] destinati all'uso domestico e commerciale o industria leggera
+\end{itemize}
+
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+       & Classe A        & Classe B       \\ \hline
+ FCC   & \SI{10}{\meter} & \SI{3}{\meter} \\ \hline
+ CISPR & \SI{10}{\meter} &\SI{10}{\meter} \\ \hline
+\end{tabular}
+\end{center}
+\caption{Distanza a cui effettuare le misure}
+\end{figure}
+
+Il diverso ambiente in cui questi oggetti devono funzionare rende necessaria la differente
+analisi, gli oggetti di industria pesante sono solitamente di dimensioni maggiori,
+questo rende necessario effettuare una misura a grande distanza per assicurarsi che 
+ci si trovi in condizione di \textit{campo lontano}.
+
+Nel caso in cui questa distanza non possa essere mantenuta, si effettua una misura
+a distanza inferiore, ad esempio a \SI{3}{\meter} con valori di soglia superiori.
+
+Sappiamo che il campo elettrico si propaga come:
+$$
+ \left|E_r \right| \propto \frac{1}{r} 
+$$
+il livello di campo a \SI{3}{\meter} si può calcolare:
+
+$$
+ \frac{E_3}{E_{10}} = \frac{r_{10}}{r_{3}} \Rightarrow 20\log_{10}E_3 - 20\log_{10}E_{10} = 20\log_{10}\left( \frac{10}{3}\right) \simeq \SI{10}{\decibel}
+$$
+$$
+ E_3 \simeq 3\cdot E_{10}
+$$
+
+\section{Correnti di modo comune e correnti di modo differenziale}
+Le correnti di \textbf{modo comune} si hanno solitamente quando sono presenti masse
+a potenziali diverse oppure sono presenti asimmetrie o imperfezioni nelle schede elettroniche.
+Le correnti di \textbf{modo differenziale} invece sono solitamente quelle necessarie al
+corretto funzionamento di qualsiasi dispositivo elettrico o elettronico.
+
+\begin{figure}[h] %1:15 aggiungi figura
+\centering
+ \begin{circuitikz}
+ \draw
+ (0,0) [dashed] -- (4,0)
+ ;
+ \end{circuitikz}
+\end{figure}
+
+Dalla figura si può vedere che il contributo di disturbo dato dalle
+correnti di modo comune genera un campo nel punto 2 superiore a quello
+generato dalle correnti di modo differenziale supponendo che la corrente nei conduttori sia la stessa.
+Anche in caso di corrente di modo comune di intensità più bassa può comunque avere un'entità di disturbo
+paragonabile a quello dato dalle correnti di modo differenziale.
