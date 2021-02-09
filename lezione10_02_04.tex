@@ -50,5 +50,14 @@ $$
     \frac{\text{SWT}}{\text{SPAN}} = \frac{T}{\Delta f} \Rightarrow T = \frac{\text{SWT}\cdot\Delta f}{\text{SPAN}}
 $$
 %%% 1:00:30
+La misura con uno sweep time breve permette di ottenere una rappresentazione
+più accurata delle componenti presenti nel segnale.
 
+Per calcolare il parametro $\tau$ invece si può utilizzare uno sweep time
+abbastanza lungo da ottenere tutte le frequenze ravvicinate nella stessa analisi, facendo 
+in questo modo, si possono determinare i punti a frequenza nulla, l'ampiezza
+della ``onda'' è pari a $1/\tau$.
 
+Usando lo sweep-time breve invece si può associare ad un \textbf{max hold},
+un componente presente nel detector che conserva i risultati delle ``spazzolate'' precedenti,
+utile anche in questo caso al calcolo di $\tau$.
