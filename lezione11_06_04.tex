@@ -70,18 +70,37 @@ $$
 $$
 
 \section{Correnti di modo comune e correnti di modo differenziale}
+
 Le correnti di \textbf{modo comune} si hanno solitamente quando sono presenti masse
 a potenziali diverse oppure sono presenti asimmetrie o imperfezioni nelle schede elettroniche.
 Le correnti di \textbf{modo differenziale} invece sono solitamente quelle necessarie al
 corretto funzionamento di qualsiasi dispositivo elettrico o elettronico.
 
-\begin{figure}[h] %1:15 aggiungi figura
-\centering
- \begin{circuitikz}
- \draw
- (0,0) [dashed] -- (4,0)
- ;
- \end{circuitikz}
+
+\begin{figure}[h] %inserisci circuit differenziale e comune
+ \centering
+ \begin{subfigure}[t]{0.3\textwidth}
+  \begin{circuitikz}
+    \draw
+    (0,0) [dashed] -- (4,0);
+    \draw (0.5,-1) [->] -- (0.5,1) node[anchor=east]{$I_d$};
+    \draw (1,1)node[anchor=west]{$-I_d$} [->] -- (1,-1);
+    \filldraw [black] (0.75,0) circle (2pt) ;
+   \draw (3.7,0) -- (3.7,1.8);
+  \end{circuitikz}
+  \caption{}
+  \label{fig:AAA}
+ \end{subfigure}
+ \quad \quad \quad
+ \begin{subfigure}[t]{0.3\textwidth}
+  \begin{circuitikz}
+  \draw (0,0) [dashed] -- (4,0);
+  \draw [->] (3.7,0) -- (3.7,1.8);
+  \end{circuitikz}
+  \caption{}
+  \label{fig:BBB}
+ \end{subfigure}
+ \caption{}
 \end{figure}
 
 Dalla figura si può vedere che il contributo di disturbo dato dalle
