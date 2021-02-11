@@ -26,3 +26,59 @@ Si riportano quindi le due espressioni di campo elettrico in funzione delle corr
  \end{split}
 \end{equation*}
 
+\paragraph{Esercizio}
+Siano dati i seguenti valori: (Sol. $I_C = \SI{2.4e-6}{\ampere}\quad I_D = \SI{1.8e-3}{\ampere}$)
+\begin{equation*}
+ \begin{split}
+ f & = \SI{100}{\mega\hertz} \qquad L = \SI{1}{\meter} \\
+ d & = \SI{3}{\meter}\quad \ \ s = 50\ \text{mil} = 50\cdot 25,4\cdot10^{-6} \si{\meter}
+ \end{split}
+\end{equation*}
+Trova i valori di corrente $I_C$ e $I_D$ tali che si abbia un campo pari a $E = \SI[per-mode=symbol]{100}{\micro\volt\per\meter}$
+
+\newpage
+
+%%inizia pagina nuova
+\paragraph{Contromisure}
+Lo scopo dell'analisi di compatibilità elettromagnetica è quello di attuare opportune
+contromisure per ridurre l'intensità del campo, alcuni parametri delle equazioni sono costanti,
+si può quindi agire sulla corrente necessaria al funzionamento del dispositivo
+riducendo al minimo $I_D$ affinché funzioni il dispositivo, le correnti $I_C$ invece sono correnti 
+dovute a non idealità che vanno quindi ridotte al minimo, ad esempio gestendo al meglio
+filtraggi e bilanciamenti, la presenza di masse a potenziale differente.
+
+Un ulteriore soluzione è la riduzione della frequenza del segnale, in particolare
+per il campo di modo differenziale che dipende dal quadrato della frequenza,
+la controindicazione è avere un dispositivo che trasporta meno informazioni.
+
+I fattori geometrici come la distanza tra i conduttori e la loro lunghezza influiscono
+anch'essi sulla ampiezza del campo emesso, all'aumentare di tali parametri aumenta il campo emesso,
+per le correnti di modo comune conta l'\textit{area} mentre per quelle di modo differenziale la \textit{lunghezza}.
+
+Definiamo $E/I$ come la funzione di trasferimento del sistema corrente-campo, ingresso-uscita:
+\begin{equation*}
+\begin{split}
+\frac{E_D}{I_D} & = K(d)f^2 \\
+\frac{E_C}{I_C} & = K'(d)f
+\end{split}
+\end{equation*}
+Rappresentiamo il diagramma di Bode della funzione di trasferimento per il campo differenziale:
+
+%%Inserisci diagramma 0:57
+
+Abbiamo una funzione che sale con una pendenza di \SI{+40}{\decibel/dec} mentre nel caso della funzione
+di modo comune avremo una pendenza di \SI{+20}{\decibel/dec}, il segnale in ingresso
+è un treno di impulsi con parametri $\tau$ il periodo e $\tau_r$ il tempo di salita.
+Il diagramma di Bode del segnale parte con una pendenza di \SI{0}{\decibel/dec} e alla frequenza di $1/\pi\tau$
+scende con una pendenza di \SI{-20}{\decibel/dec}, in corrispondenza di $1/\pi\tau_r$ continua
+a scendere con pendenza \SI{-40}{\decibel/dec}.
+
+Sommando i vari diagrammi si può ottenere il campo in uscita data la corrente.
+%%Inserisci diagrammi risultati
+Osservando i grafici si può vedere l'andamento di un pacchetto di frequenze che formano il treno %1:08 
+di impulsi trapezoidali si vede che il segnale di modo
+differenziale raggiunge il picco dopo una certa frequenza, per ridurre l'emissione si può aumentare
+$\tau$ e $\tau_r$ ottenendo complessivamente una pendenza più bassa e un valore assoluto del segnale
+inferiore, allo stesso modo anche il segnale di modo comune, non è però conveniente ridurre le frequenze dei funzionamento dei dispositivi.
+Una soluzione utile per ridurre i disturbi emessi può essere quella di intrecciare i cavi di alimentazione
+
