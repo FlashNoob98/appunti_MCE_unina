@@ -1,0 +1,111 @@
+
+Se avessimo una scheda elettronica con un generatore ed un carico,
+si avrebbero due conduttori, i quali sarebbero attraversati dalla corrente
+differenziale, si può supporre che si sia anche una corrente
+di modo comune aggiuntiva, dovuta a causa della non idealità dell'ossido,
+che si richiuda verso la massa al di sotto della scheda.
+
+$$
+\begin{cases}
+I_1 = I_C + I_D \\
+I_2 = I_C - I_D
+\end{cases}
+\Rightarrow \quad
+\begin{cases}
+I_C = \frac{I_1+I_2}{2} \\
+I_D = \frac{I_1-I_2}{2}
+\end{cases}
+$$
+
+Immaginando di avere 2 fili di corrente a distanza $S/2$ dall'origine,
+le due correnti procedono nello stesso verso, verso l'asse $Z$.
+Per caratterizzare il campo generato possiamo scomporne le componenti lungo i tre assi
+ottenendo in ogni punto dello spazio un campo elettrico $E_\theta(r,\theta,\varphi)$.
+A grande distanza si vede che il campo elettrico dipende solo dalla variabile $\theta$
+$$
+ E_\theta = M \cdot I \cdot \frac{e^{-j\beta_0 r}}{r} F(\theta)
+$$
+
+$M$ e $F(\theta)$ sono due grandezze che dipendono dal tipo di dipolo considerato, $\beta_0 = 2\pi/\lambda$.
+
+\paragraph{Dipolo Hertziano} È un dipolo \textit{piccolo elettricamente}
+ossia piccolo rispetto alla lunghezza d'onda che lo attraversa, se così
+non fosse non si potrebbe affermare che il valore della corrente sia
+uniforme lungo la sua lunghezza.
+
+I parametri del dipolo hertziano sono i seguenti:
+$$
+\begin{cases}
+M =  2\pi j \cdot 10^{-7} L f \\
+F(\theta) = \sin \theta
+\end{cases}
+$$
+
+I raggi che collegano i due conduttori con il punto di osservazione si possono supporre paralleli
+a causa della grande di stanza del punto di osservazione dal dipolo.
+Il campo totale $E_T$ sarà pari, applicando il principio di sovrapposizione degli effetti:
+$$
+ E_T = E_1 + E_2 = M\cdot F(\theta)\cdot \left[\frac{I_1 e^{-j\beta_0 r_1}}{r_1} +\frac{I_2 e^{-j\beta_0 r_2}}{r_2}  \right]
+$$
+
+%%0:33 inserisci immagine fili a grande distanza r1 r e r2 cap 9 libro
+
+$\Delta$ è il cammino addizionale rispetto al conduttore più vicino
+che il campo deve percorrere per raggiungere il punto P,
+$\gamma$ è l'angolo tra la retta che congiunge P all'origine e l'asse Y, di conseguenza
+$\Delta$ sarà 
+$$
+\Delta = \frac{s}{2}\cos\gamma = \frac{s}{2}\cdot \hat{\imath}_y\cdot \hat{\imath}_r
+$$
+
+Un altro modo per esprimere $\Delta$ è quello di proiettare prima il punto sul piano XY, successivamente
+proiettare il punto ottenuto $\Delta'$ sull'asse Y.
+$$
+\cos\gamma = \cos\left(\frac{\pi}{2} - \theta\right) \cdot \sin\varphi = \sin\theta \cdot \sin\varphi
+$$
+
+Nel complesso
+$$
+\begin{cases}
+r_1 = r + \Delta = r + \frac{s}{2} \sin\theta \sin\varphi \\
+r_2 = r - \Delta = r - \frac{s}{2} \sin\theta \sin\varphi
+\end{cases}
+$$
+
+$$
+E_T = 2 \pi j \cdot 10^{-7} L f \frac{e^{-j \beta_0 r}}{2} \left[I_1 e^{-j \beta_0 \Delta} + I_2 e^{j \beta_0 \Delta} \right]\sin\theta
+$$
+
+\paragraph{Calcolo campo con correnti di modo differenziale}
+In questo caso $I_1 = I_D$ e $I_2 = -I_D$
+\begin{equation*}
+ \begin{split}
+E_D & = 2 \pi j \cdot 10^{-7} L f \frac{I_D}{2}e^{-j \beta_0 r} \left[e^{-j \beta_0 \Delta} - e^{j \beta_0 \Delta} \right]\sin\theta \\
+ & = 2 \pi j \cdot 10^{-7} L f \frac{I_D}{2}e^{-j \beta_0 r} \left[-2j\sin(\beta_0\Delta)\right]\sin\theta \\ %%e il meno???
+ & = 4\pi\cdot10^{-7}Lf\frac{I_D}{2}e^{-j\beta_0 r} \sin\left(\beta_0 \frac{s}{2} \sin\theta \sin\varphi \right)\sin\theta
+  \end{split}
+\end{equation*}
+
+Valutando $\left|E_D\right|$ per cercarne il massimo si ottiene
+\begin{equation*}
+ \begin{split}
+\text{max}&\left|E_D\right| = 4\pi\cdot10^{-7}Lf\frac{I_D}{2}\sin\left(\beta_0 \frac{s}{2} \sin\theta \sin\varphi \right)\sin\theta \\
+& \stackrel{\theta = \pi/2}{=} 4\pi\cdot10^{-7}Lf\frac{I_D}{2}\sin\left(\frac{2\pi}{\lambda} \frac{s}{2} \sin\varphi \right) 
+  \end{split}
+\end{equation*}
+
+Possiamo affermare quindi che il valore massimo del campo si trova sul piano XY, ossia quando
+$\theta$ è pari a $\pi/2$.
+Analizziamo ora la funzione rispetto a $\varphi$, se $s\ll\lambda$ ossia i due conduttori
+si trovano ad una distanza molto inferiore rispetto alla lunghezza d'onda, il seno presente nell'equazione
+si confonderà con l'argomento del seno stesso:
+$$
+\left|E_D\right| \stackrel{s\ll\lambda}{=} \frac{4\pi^2\cdot10^{-7}}{r}f\frac{I_D L}{\lambda}s  
+$$
+In conclusione
+$$
+\left|E_D \right|_{\text{max}} \stackrel{\theta,\varphi = \pi/2}{=} \frac{4\pi^2\cdot10^{-7}I_D}{c\cdot r}Lsf^2
+$$
+Se ci si sposta lungo l'asse X, il campo è pari a 0 perchè i percorsi dei differenti campi sono identici,
+ma il loro valore è uguale e opposto.
+
