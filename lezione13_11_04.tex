@@ -1,0 +1,28 @@
+
+\paragraph{Calcolo campo con correnti di modo comune}
+$I_1 = I_2 = I_C$
+
+\begin{equation*}
+\begin{split}
+E_C & = 2 \pi j \cdot 10^{-7} L f \frac{I_C}{r}e^{-j \beta_0 r} \left[e^{-j \beta_0 \Delta} + e^{j \beta_0 \Delta} \right]\sin\theta \\
+\left|E_C\right| & = 2 \pi \cdot 10^{-7} L f \frac{I_C}{r} \cdot 2 \cos(\beta_0\Delta)\sin\theta = \\
+& = 4\pi\cdot10^{-7}Lf \frac{I_C}{r}\cos\left.\left(\frac{2\pi}{\lambda}\frac{s}{2}\sin\theta\sin\varphi\right)\sin\theta\right|_{\theta=\frac{\pi}{2}} =\\
+& = 4\pi\cdot10^{-7}Lf\frac{I_C}{r}\cos\left.\left(\frac{2\pi}{\lambda}\frac{s}{2} \sin\varphi\ \right)\ \right|_{\varphi=?} \stackrel{s\ll\lambda}{=} 4\pi\cdot10^{-7}Lf\frac{I_C}{r}
+\end{split}
+\end{equation*}
+
+Si riportano quindi le due espressioni di campo elettrico in funzione delle correnti:
+
+\begin{equation*}
+ \begin{split}
+ E_D & = \frac{4\pi^2\cdot10^{-7}}{c}\cdot \frac{I_D}{r} f^2 Ls\ \text{con}\ \begin{split}
+ \theta & = \pi/2 \\
+ \varphi & = \pi/2
+ \end{split}\\
+ E_C & = 4\pi\cdot10^{-7}\frac{I_C}{r}fL\qquad\ \ \text{con}\ \begin{split}
+  \theta & = \pi/2 \\
+ \forall& \ \varphi\in R
+ \end{split}
+ \end{split}
+\end{equation*}
+
