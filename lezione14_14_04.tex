@@ -1,0 +1,88 @@
+
+\section{Richiami di elettromagnetismo}
+\paragraph{Legge di Ampere}
+Immaginiamo un circuito chiuso all'interno del quale ci siano
+sia correnti che entrano, che correnti che escono. %%%Inserisci immagine circuito
+
+$$ %%legge di Ampere
+\oint_C \vec{H} \cdot \vec{dl} = \int_S \vec{J}\cdot \vec{ds} + \frac{d}{dt}\left( \varepsilon \int_S \vec{E}\cdot\vec{ds}\right)
+$$
+
+La circuitazione del campo magnetico attraverso una superficie chiusa $S$ è dato dalla somma delle correnti
+che attraversano quella superficie e dalla variazione di campo elettrico attraverso la stessa superficie (campo di
+spostamento).
+
+Utilizzando un ambiente schermato è possibile azzerare il contributo dovuto al campo elettrico,
+isolando soltanto il contributo dovuto alle correnti nei conduttori, sfruttando questo principio
+è possibile costruire una \textbf{sonda amperometrica} utilizzando un toro di ferrite a sezione rettangolare
+sul quale viene posto un avvolgimento, ai suoi capi viene letta la tensione indotta.
+
+$$
+\Phi_B = \int_A \mu\vec{H} \cdot \vec{ds} \stackrel{N_{\text{spire}}}{\Rightarrow} V_{\text{emf}} = -N\frac{d}{dt} \mu \int_A \vec{H} \cdot \vec{ds} = -N\frac{d}{dt}\mu\Phi_A
+$$
+
+Si può quindi rappresentare la sonda come un doppio bipolo, il cui ingresso è la corrente da misurare
+e la grandezza in uscita è la tensione ai suoi capi.
+Si valuta quindi l'\textit{impedenza di trasferimento} indicata in \si{\decibel\ohm}
+$$
+\left|Z_T\right| = \frac{|V_{\text{out}}|}{|I_{\text{in}}|}
+$$
+Si vede che il valore massimo di impedenza si ottiene ad un valore di circa \SI{100}{\mega\hertz},
+sfruttando la curva di taratura è possibile configurare lo strumento di misura correttamente per
+riportare il corretto valore di corrente ad una data tensione misurata.
+$$
+|I|_{\si{\decibel\ampere}} = |V|_{\si{\decibel\volt}} - |Z_T|_{\si{\decibel\ohm}}
+$$
+Per eseguire la taratura viene \underline{ovviamente} utilizzato un carico di \SI{50}{\ohm}, 
+la legge di Faraday, vale infatti per un circuito aperto, la tensione misurata sarà il risultato
+della f.e.m. su un determinato carico.
+
+Effettuando diverse misurazioni in un sistema monofase ad esempio si può misurare la presenza
+di correnti di modo differenziale o di modo comune se si misurano i cavi di fase e neutro, escludendo 
+dalla misura il conduttore di terra, o viceversa misurare solo il conduttore di terra per determinare
+se le correnti di modo comune ritornano a terra mediante le masse del dispositivo o vengono radiate.
+
+Se si misura un singolo cavo, il valore di campo elettrico è pari alla metà di quello precedentemente
+calcolato:
+$$
+|E_C| = 2\pi\cdot10^{-7} \frac{fL}{d}|I_C| = 2\pi\cdot10^{-7}\frac{fL}{d}\frac{|V|}{|Z_T|}
+$$
+
+Sfruttando il valore di $Z_T$ si può esprimere il valore del campo in funzione del valore di tensione.
+Per valutare le correnti di modo comune, andrebbe misurato il campo emesso dal dispositivo, in camera
+semianecoica, utilizzando la 
+relazione precedente si può eseguire la stessa misura utilizzando una sonda di corrente.
+Si deve escludere preventivamente che le correnti di modo differenziale ad alta frequenza (non funzionali
+al dispositivo) non ce ne siano.
+Poichè in questo caso non vale il modello di dipolo Hertziano, la misura deve essere effettuata 
+necessariamente a \SI{15}{\centi\meter} dalla porta di alimentazione del dispositivo per garantire
+la riproducibilità della misura.
+
+\section{Ambienti di misura}
+A parità di sorgenti, l'ambiente in cui viene effettuata la misura ne influenza il risultato,
+l'ambiente si comporta come un filtro, bisogna essere certi che a parità di disturbo i diversi 
+ambienti influiscano allo stesso modo sulla misura.
+
+\paragraph{Open Area Test Site}CISPR 16-1-4 Il miglior ambiente per eseguire una misura è l'\textit{OATS},
+ossia un ambiente in campo aperto, libero da ostacoli, con un piano di terra privo di irregolarità.
+L'EUT (Equipement Under Test) non può essere sospeso nel vuoto, va poggiato sul piano di utilizzo
+tipico (come ad esempio un tavolo in legno alto \SI{80}{\centi\meter}).
+Il piano di terra deve avere una conducibilità $\sigma$ tendente a $+\infty$, dato che la misura deve
+essere eseguita a \SI{3}{\meter}, non mi interessa che il piano di misura si estenda all'infinito
+bensì si delimita il perimetro del sito pari ad un ellisse i cui fuochi siano l'antenna di misura 
+e l'EUT, il perimetro si estenda per una lunghezza pari a $2R$ in un senso e $\sqrt{3}R$ nell'altro.
+Non devono essere presenti ostacoli all'interno del perimetro, la lunghezza totale minima che 
+il segnale dovrebbe percorrere colpendo un ostacolo deve essere almeno pari a $2R$.
+
+È importante che il piano di terra abbia una conducibilità tendente all'infinito affinché si possa supporre
+che il campo irradiato dalla sorgente venga riflesso perfettamente.
+
+Bisogna inoltre assicurarsi che non vi siano ulteriori apparecchi che emettono nella stessa banda, vengono
+definiti 4 livelli di ``purezza'' elettromagnetica:
+\begin{itemize}
+\item Tutti i disturbi sono almeno di \SI{6}{\decibel} al di sotto dei valori misurati con dispositivo spento
+\item Alcune emissioni nell'ambiente al di sotto di meno di \SI{6}{\decibel} dei valori misurati
+\item Emissioni discontinue ma al di sopra di \SI{6}{\decibel} dei valori misurati
+\item Emissioni al di sopra dei livelli per una porzione significativa della frequenza di misura e che 
+avvengono con continuità.
+\end{itemize}
