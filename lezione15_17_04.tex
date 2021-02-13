@@ -1,0 +1,78 @@
+
+Un elemento fondamentale dell'OATS è la presenza di una tavola rotante, necessaria
+alla misurazione dell'emissione per ogni angolo del dispositivo, mantenendo
+fisso il punto di ricezione. Nel caso in cui ciò non sia possibile,
+si fa ruotare l'antenna attorno all'EUT a distanza $R$ e l'OATS deve
+avere un raggio $\geq 1,5R$.
+
+È evidente che l'OATS influenza la propagazione del segnale e per questo motivo
+è necessaria la sua \textbf{taratura}, va confrontato ogni OATS con il modello ideale.
+
+Il primo passo necessario alla taratura è la misura di $V_{\text{DIRECT}}$ ossia la tensione
+diretta tra il generatore e il misuratore, collegati mediante un cavo.
+Poi si effettua la misura di $V_{\text{SITE}}$ ossia 
+$$
+V_{\text{SITE}} = V_L -\alpha_T - \text{SA} - \alpha_r = V_{\text{DIRECT}} - \text{SA}
+$$
+
+SA è proprio l'attenuazione di sito, al quale vanno sottratti i fattori di antenna e il
+fattore di accoppiamento per ottenere il \textit{Normalised Site Attenuation} (NSA)
+$$
+V_{\text{DIRECT}} - V_{\text{SITE}} - \text{AF}_T - \text{AF}_R - \Delta\text{AF} = \text{NSA}
+$$
+
+Per avere un'analisi completa, l'antenna ricevente deve misurare le emissioni anche ad altezze
+e inclinazioni differenti, ciò comporta una variazione di distanza percorsa dai raggi diretti e quelli riflessi,
+è quindi logico attendersi un valore di tensione differente.
+Il $V_{\text{SITE}}$ da misurare deve quindi essere il massimo per ogni altezza dell'antenna ricevente $h_1$,
+tipicamente tra \SI{1}{\meter} e \SI{4}{\meter} per misure a \SI{10}{\meter} e tra \SI{3}{\meter} 
+e \SI{6}{\meter} per misure a \SI{30}{\meter}.
+
+Infine l'NSA ottenuto (\textit{sperimentale}) viene confrontato con quello teorico e deve essere pari
+ad esso $\pm\SI{4}{\decibel}$ (vedi tabelle E1 E2 ed E3).
+
+Gli NSA variano a seconda della polarizzazione delle antenne, verticale ed orizzontale,
+le antenne utilizzate per effettuare la misura sono di due tipi: dipoli accordati ($\lambda/2$) 
+o antenne log-periodiche a banda larga. Le antenne a banda larga non hanno le stesse prestazioni dei
+dipoli accordati ma c'è un enorme vantaggio in termini di tempo, dato che non si richiede la sostituzione
+della stessa per ogni valore di frequenza.
+
+I fattori di antenna sono caratteristiche note ai costruttori, il $\Delta\text{AF}$ invece è diverso da 0
+solo per dipoli a $\lambda/2$ e distanza pari a \SI{3}{\meter} (tabella E4).
+
+Con la polarizzazione verticale è importante mantenere sempre almeno \SI{25}{\centi\meter} di
+distanza tra l'antenna e il piano di massa per evitare accoppiamenti con lo stesso.
+%0:58
+
+Una soluzione pratica è quella di utilizzare un sistema che permetta di variare l'altezza dell'antenna con continuità
+utilizzando un Max Hold per rilevare la massima ampiezza di campo mentre l'antenna si sposta, se lo sweep delle
+frequenze avviene in maniera abbastanza veloce da poter considerare ogni sweppata alla stessa altezza, 
+solo l'analizzatore di spettro è in grado di eseguire una misura simile.
+
+Solitamente viene eseguita prima la misura con polarizzazione orizzontale, quella con polarizzazione
+verticale è più sensibile, se già con quella meno sensibile si ottengono valori fuori limite,
+significa che il sito ha grossi problemi di attenuazione.
+\newpage
+
+
+
+
+Eventuali criticità relative alla misura:
+\begin{itemize}
+ \item Errore grossolano tipo distanza di misura e altezze delle antenne
+ \item Verificare la correttezza dei fattori di attenuazione
+ \item Avere la certezza che non ci sia stata una variazione del funzionamento degli strumenti (drift termico)
+\end{itemize}
+Se le precedenti soluzioni non portano ad un miglioramento dei valori, allora il problema
+starà proprio nel sito che stiamo misurando, come
+\begin{itemize}
+ \item Piano di terra con non perfetta conducibilità
+ \item Discontinuità dei pannelli dovute ad errati fissaggi, distanze troppo elevate con probabili risonanze
+ \item Discontinuità dovute alla sporgenza delle viti o alla loro assenza (fori liberi)
+ \item Problemi dovuti alle tendostrutture non perfettamente permeabili ai campi elettromagnetici
+\end{itemize}
+(tabella pagina 145)
+
+Nel metodo di misura discreto, si ha un'incertezza maggiore sull'attenuatore, il dispositivo
+necessario a misurare la tensione diretta, nel metodo con analizzatore di spettro, invece, l'incertezza è di
+circa \SI{1,6}{\decibel} includendo sia l'attenuatore che il voltmetro.
