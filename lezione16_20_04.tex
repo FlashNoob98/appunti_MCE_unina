@@ -1,0 +1,54 @@
+
+\section{Camera semianecoica}
+Nel caso in cui si voglia eseguire una prova di compatiblità elettromagnetica
+in un ambiente non isolato, è necessario utilizzare un ambiente chiuso,
+puro elettromagneticamente.
+La camera chiusa viene resa perfettamente riflettente utilizzando una gabbia di Faraday esterna,
+aumenterebbero però i punti di riflessione interni.
+
+Per ridurre le riflessioni interne vengono quindi utilizzati i pannelli assorbenti,
+il primo strato è composto da pannelli di ferrite, oltre le centinaia di \si{\mega\hertz} la ferrite
+non è più sufficiente ad attenuare i raggi riflessi, vanno quindi usati dei pannelli piramidali a base quadrata 
+contenenti polveri di carbonio, conduttive. In questo modo l'ampiezza del campo riflesso sarà attenuata 
+ma verrà comunque convogliato verso l'interno della parete, riflettendo più volte tra i pannelli stessi, 
+si può stimare un'attenuazione di diverse decine di \si{\decibel}.
+
+Inoltre la particolare forma dei pannelli rende l'impedenza vista dal fronte d'onda gradualmente maggiore
+riducendo al minimo la discontinuità che comporterebbe una forte riflessione.
+
+Il piano di terra non viene ricoperto con materiale assorbente perchè deve garantire una perfetta
+riflessione del campo, così come avveniva nel campo aperto.
+
+(pag. 53 norma)
+Date le dimensioni ridotte dell'ambiente, è possibile che alcuni punti dell'antenna ricevente si trovino a
+distanze tali dalle pareti da risentire della distorsione del campo dovuto ai pannelli assorbenti.
+Per caratterizzare l'ambiente di misura devo quindi eseguire almeno 20 misurazioni,
+per caratterizzare un certo volume pari a quello occupato dall'antenna ricevente nell'ambiente,
+si descriverà quindi un cilindro, composto da 4 misurazioni sulla circonferenza inferiore e superiore,
+una al centro della circonferenza, per 2 altezze diverse e per entrambe le polarizzazioni,
+per un totale appunto di 20 misurazioni di NSA differenti. Ogni singola misurazione deve rispettare 
+le tolleranze dell'NSA teorico.
+
+Conviene utilizzare sempre le antenne a banda larga per le misure in camera semianecoica
+perché non si riuscirebbe a garantire una distanza minima di \SI{25}{\centi\meter} dalle pareti.
+Le tabelle riportano il valore di NSA ad una distanza costante di \SI{3}{\meter}, è necessario
+quindi spostare l'antenna ricevente sull'asse di mezzeria per compensare lo spostamento dell'antenna emittente.
+Inoltre se si utilizzano antenne direttive, queste devono anche essere opportunamente ruotate
+per puntare sempre in direzione dell'altra antenna, si deve sempre garantire il massimo accoppiamento.
+
+Se l'antenna ricevente occupa una distanza su uno degli assi tale da coprire l'intero diametro o altezza
+del cilindro, non è necessario ripetere le misure su quell'asse.
+
+\newpage
+
+\section{Misure di emissione radiata}
+Una procedura di emissione radiata è pressocchè identica alla procedura di taratura,
+nel primo caso si ha una sorgente nota, nel secondo l'EUT deve essere posto nelle condizioni peggiori
+ossia nel punto di funzionamento in cui questo emetta più radiazioni, nel caso di un computer
+ad esempio possono essere eseguiti dei software di benchmark, e il dispositivo deve essere posto nella sua
+condizione di utilizzo tipica, ad esempio un tavolo o per terra.
+
+Messo in funzione l'EUT deve ruotare e traslare in altezza, la risoluzione con la quale devono variare
+questi parametri dipendono dalle dimensioni dell'antenna, %1:07
+
+
