@@ -1,0 +1,41 @@
+
+\section{Immunità Radiata}
+L'analisi di immunità radiata copre le frequenze da \SI{20}{\mega\hertz} a \SI{3}{\giga\hertz}.
+Si devono definire i parametri di immunità di un dispositivo, vanno valutate le degradazioni di prestazioni
+del singolo dispositivo.
+
+Esistono quattro criteri di accettazione:
+\begin{itemize}
+ \item [A] Il dispositivo continua a comportarsi come prima della attivazione del disturbo
+ \item [B] Il dispositivo presenta una degradazione delle prestazioni che termina al terminare del disturbo 
+ \item [C] Degradazione delle prestazioni che richiede un intervento manuale o automatico per il loro ripristino
+ \item [D] Criterio di non accettazione, il dispositivo presenta delle degradazioni non recuperabili
+\end{itemize}
+
+Assicurarsi una buona immunità dai disturbi elettromagnetici, oltre a rispettare le norme si ottiene
+anche un prodotto qualitativamente migliore.
+
+Per eseguire la prova si deve tarare un certo campo di disturbo, va tarato il disturbo ad un valore
+ad esempio di \SI[per-mode=symbol]{3}{\volt\per\meter} uniforme su un piano di \SI{1.5}{\meter} per \SI{1.5}{\meter}.
+
+È difficile avere in queste condizioni un campo uniforme data la piccola distanza della superficie dall'emettitore,
+al campo diretto bisogna aggiungere quello riflesso sul pavimento, per migliorare la situazione riguardo 
+l'uniformità di campo si ottiene anecoicizzando il pavimento.
+In ogni caso il fronte d'onda non potrà mai essere del tutto uniforme, si assume quindi un campo uniforme con una 
+tolleranza di \SI{+6}{\decibel}. Si assume una tolleranza solo positiva perchè il campo dichiarato 
+deve essere il minimo al quale il dispositivo deve essere dichiarato immune.
+Il valore del campo $E_T$ si può esprimere come
+$$
+E_T = V_G + A - \alpha + AF_T -A_d
+$$
+Dove $V_G$ è la tensione del generatore, $A$ il guadagno dell'amplificatore, $\alpha$ l'attenuazione
+del cavo, $AF_T$ il fattore d'antenna e $A_d$ l'attenuazione del campo dovuta alla distanza.
+Il range di frequenze utilizzate varia da un minimo di \SI{20}{\mega\hertz} a \SI{3}{\giga\hertz},
+questo implica che tutti i parametri presenti nella formula variano con la frequenza, sarebbe molto difficile
+avere un modello accurato, piuttosto si preferisce agire diversamente, si misura il campo
+sul piano e si regola la tensione del generatore affinchè il valore di campo non sia 
+pari a quello desiderato.
+
+Per effettuare la taratura sul punto di misura si usa una sonda e si campionano dei punti presenti nel
+piano, la norma prevede la suddivisione dello spazio in 16 punti
+
