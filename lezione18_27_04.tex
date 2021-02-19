@@ -1,0 +1,63 @@
+\section{Misura dei disturbi condotti}
+Le misure effettuate riguardano i cavi di alimentazione dei dispositivi,
+le normative vigenti impongono limiti di tensione indotta, ma la caratteristica
+principale che emette i disturbi elettromagnetici è la corrente,
+le frequenze di interesse partono da un valore di \SI{150}{\kilo\hertz} per le normative 
+CISPR e \SI{450}{\kilo\hertz} per quelle FCC, fino ad una frequenza di 
+\SI{30}{\mega\hertz}.
+Sembra paradossale riferirsi a disturbi di campo radiato per frequenze relativamente basse,
+va quindi ricordato che i disturbi condotti si propagano sulla rete elettrica, ramificata 
+ma soprattutto molto estesa, per questo motivo anche frequenze basse possono irradiare
+dei disturbi a distanze considerevoli.
+
+\begin{figure}[h]
+ \centering
+ \begin{circuitikz}
+ \draw (0,0) to [resistor, o-,l=$R_s$] (2,0)
+            to [vsourcesin,l=$V_s$] (2,-2)
+            to [short,-o] (0,-2) 
+ ;
+ \draw (0,-2) to [open,v=$V_n$] (0,0);
+ \draw (-0.05,0) to [short,i=$ $] (-1,0)
+        to [generic,l_=$Z_N$] (-1,-2)
+        to [shor] (-0.05,-2);
+ \end{circuitikz}
+ \caption{Modello di EUT connesso alla rete elettrica}
+\end{figure}
+
+In prima ipotesi è possibile misurare la tensione di disturbo mediante un
+voltmetro collegato all'uscita del dispositivo, la tensione di rumore $V_N$ sarebbe 
+però pari a:
+$$
+V_N = V_s\frac{Z_N}{R_s+Z_N}
+$$
+ossia dipenderebbe dall'impedenza della rete, la misura non sarebbe ripetibile e 
+nemmeno riproducibile.
+Si deve quindi utilizzare una configurazione che isoli l'EUT dalla rete.
+Si utilizza un dispositivo chiamato \textbf{LISN} (\textit{Line Impiedance Stabilization
+Network}) interposto tra l'EUT e la rete elettrica.
+
+\paragraph{LISN monofase}
+La LISN in figura è della tipologia FCC.
+%induttanza 50 \micro\henry
+% C lato alimentazione 1\micro\farad
+%C lato EUT 0.1 microfoarad
+%resistenze: 1 kohm 50 ohm
+%0:32
+La LISN non deve offrire impedenza alla frequenza di \SI{50/60}{\hertz}, necessaria
+all'alimentazione del dispositivo, le induttanze-serie si comportano come un
+corto circuito. Un tipo di LISN utile a misurare i disturbi tra fase e terra
+e neutro e terra, viene detta LISN a ``Y''. Esistono LISN a $\Delta$ utili a misurare
+i disturbi tra le fasi.
+I condensatori in parallelo invece si comportano come circuiti aperti per basse frequenze.
+
+In alta frequenza invece (\SI{e5}{\hertz}) gli induttori serie si comportano come un
+circuito aperto mentre i condensatori come corto circuiti.
+$$
+Z_L = 2\pi f L \qquad Z_C = \frac{1}{2\pi f C}
+$$
+
+Le coppie di resistenze in parallelo rappresentano rispettivamente
+la resistenza d'ingresso del ricevitore e una resistenza da
+\SI{1}{\kilo\ohm} necessaria a 
+%0:50:46
