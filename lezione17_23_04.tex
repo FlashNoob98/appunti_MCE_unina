@@ -37,5 +37,41 @@ sul piano e si regola la tensione del generatore affinchè il valore di campo no
 pari a quello desiderato.
 
 Per effettuare la taratura sul punto di misura si usa una sonda e si campionano dei punti presenti nel
-piano, la norma prevede la suddivisione dello spazio in 16 punti
+piano, la norma prevede la suddivisione dello spazio in 16 punti, si esegue la
+misura su un punto e si considera come punto di taratura, ossia si memorizzano
+i valori di potenza per ogni frequenza e si usano gli stessi valori sugli altri
+punti da caratterizzare.
 
+Si otterrà un insieme di 16 curve differenti campo/frequenza, si calcola a questo punto
+il campo medio $\overline{E}$ e si tracciano 2 linee pari a $\overline{E} + \SI{3}{\decibel} $ ed $\overline{E} - \SI{3}{\decibel} $.
+Se questa \textit{fascia} di \SI{6}{\decibel} attorno al valore medio
+contiene tutte le 16 curve, si sarà già garantita l'uniformità di campo.
+Supponiamo che ci siano alcuni punti che per qualche frequenza escano fuori dalla fascia
+appena indicata, fino ad un massimo del 25\% dei punti totali, si può ritenere il campo
+uniforme.
+
+Se il numero di punti al di fuori della fascia è superiore al 25\% non si può garantire l'uniformità di campo. Si può cercare di compensare il campo spostando l'antenna.
+
+%1:13
+Ottenuto un capo uniforme, va garantito che il campo minimo diventi il campo $E_T$,  
+si può pensare quindi di attuare una variazione di potenza uniforme per tutti i punti
+di misura, per ogni frequenza, in modo da portare il campo minimo al campo target.
+$$
+\Delta E = 20\log_{10}\frac{E_T}{E_{\text{min}}} = 10\log_{10}\frac{P_T}{P_{\text{min}}} = \Delta P
+$$
+
+In questo modo l'uniformità sarà data dalla distanza fra il punto massimo e minimo
+tra tutte le curve disponibili. Per migliorare l'uniformità si può in alternativa
+calcolare una variazione di potenza per ogni valore di frequenza, in questo modo
+per ogni frequenza, ci sarà almeno uno dei 16 punti con un valore di campo pari ad $E_T$.
+In questo modo l'uniformità di campo sarà minore dell'uniformità di campo ottenuta con il
+secondo metodo.
+%1:36
+
+Durante la fase di taratura si utilizza un segnale sinusoidale e si determinano le potenze.
+Il segnale da inviare al dispositivo durante la prova sarà un segnale sinusoidale modulato in ampiezza
+con una profondità di modulazione all'80\% affinchè l'EUT non si ``abitui'' al disturbo ricevuto.
+
+Un tipo di approccio diverso alla taratura è quello con potenza costante (e non campo costante),
+si sceglie per il punto 1 una potenza target costante pur tenendo un campo di almeno
+\SI[per-mode=symbol]{3}{\volt\per\meter} affinchè sia correttamente misurabile.
