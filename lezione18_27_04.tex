@@ -59,5 +59,58 @@ $$
 
 Le coppie di resistenze in parallelo rappresentano rispettivamente
 la resistenza d'ingresso del ricevitore e una resistenza da
-\SI{1}{\kilo\ohm} necessaria a 
+\SI{1}{\kilo\ohm} necessaria ad abbattere la tensione sulla resistenza da \SI{50}{\ohm}
+a bassa frequenza dovuta alla presenza del condensatore. Durante il cambio dei 
+collegamenti dei morsetti di misura infatti, non si avrebbe controllo sulla tensione
+flottante sul condensatore.
+Le norme infatti impongono di misurare una volta la tensione tra fase e terra, 
+e tra neutro e terra.
 %0:50:46
+Il condensatore lato EUT è fondamentale affinchè non vi siano \SI{230}{\volt} sull'EMI 
+receiver.
+
+L'impedenza vista dall'EUT, utilizzando la LISN, è sempre pari a \SI{50}{\ohm} per
+frequenze maggiori del \si{\mega\hertz}. Viene prevista una fascia di tolleranza
+del 20\% attorno al valore nominale di impedenza.
+Questa tolleranza così elevata potrebbe però causare una notevole differenza tra
+i risultati ottenuti con LISN differenti.
+
+\paragraph{Filtro a $\pi$}Si riducono i disturbi emessi dall'EUT utilizzando un 
+filtro a $\pi$. %1:25:30 inserisci figura
+
+\begin{figure}[h] %Filtro a pi greco
+\centering
+ \begin{circuitikz}
+ \draw (0,2) to [inductor,*-*] (10,2) node[right]{P};
+ \draw (0,1) to [inductor,*-*] (10,1) node[right]{N};
+ \draw (1,0) to [short,-*]    (10,0) node[right]{PE};
+ \draw (0,0) to [inductor,*-,l_=$L_{\text{GW}}$]  (1,0);
+ 
+ \draw (1,2) to [capacitor,*-,l=$C_c$] (1,1)
+ to [short,-*] (1,0);
+  \draw (9,2) to [capacitor,*-,l=$C_c$] (9,1)
+ to [short,-*] (9,0);
+ 
+ \draw (2,1) to [capacitor,*-*,l=$C_c$] (2,0);
+  \draw (8,1) to [capacitor,*-*,l=$C_c$] (8,0);
+  
+  \draw (3,2) to [capacitor,*-*,l=$C_d$] (3,1);
+\draw (7,2) to [capacitor,*-*,l=$C_d$] (7,1);
+ \end{circuitikz}
+ \caption{Esempio di filtro a $\pi$}
+ \label{fig:filtro_pi}
+\end{figure}
+
+Il filtro rappresentato in figura \ref{fig:filtro_pi} è interno all'EUT.
+I valori tipici sono:
+\begin{itemize}
+ \item [$C_d$] = \SI{47}{\nano\farad} devono resistere alla tensione di fase.
+ \item [$C_c$] $\leq \frac{I_{\text{Lmax}}/2}{2\pi f \cdot V_{P/N}} \simeq 
+ \SI{2200}{\pico\farad}$  con $I_{\text{Lmax}}$ la massima corrente di 
+ leakage, si deve impedire che la corrente 
+ nel cavo di terra, superi i limiti dell'interruttore differenziale.
+\end{itemize}
+
+È fondamentale integrare il filtro durante la progettazione della scheda, evitando
+costi inutili aggiuntivi per trovare dispositivi discreti da integrare durante la fase
+finale della realizzazione del dispositivo.
