@@ -1,0 +1,28 @@
+\section{Immunità ai disturbi condotti indotti da campi a RF} (EN 61000-4-6)
+Ci si riferisce tipicamente ai valori da \SI{150}{\kilo\hertz} a \SI{80}{\mega\hertz}
+o \SI{230}{\mega\hertz} per alcune applicazioni.
+Nonostante la dicitura della norma, la misura di immunità avviene iniettando
+direttamente il disturbo sui cavi di alimentazione senza la necessità di irradiarli 
+e di usare quindi una camera semianecoica, sarebbe infatti difficile accoppiare un disturbo
+a radiofrequenza con il cavo di alimentazione, un disturbo a \SI{1}{\mega\hertz}
+avrebbe infatti una lunghezza d'onda di circa \SI{300}{\meter}, un cavo di alimentazione
+di circa \SI{2}{\meter} sarebbe una pessima antenna. Lo stesso discorso vale
+per la lunghezza di una eventuale antenna in emissione.
+
+Il dispositivo che simula il disturbo radiato deve iniettare nei cavi
+un disturbo di modo comune, si suppone infatti che il campo di disturbo
+induca la corrente sempre nello stesso verso in tutti i cavi.
+
+Anche l'impedenza dell'antenna va simulata, la sorgente ha tipicamente un'impedenza
+di \SI{150}{\ohm}.
+%Inserisci rappresentazione dispositivo immissione disturbi 0:30:00
+\begin{figure}[h]
+ \begin{circuitikz}
+ \end{circuitikz}
+\end{figure}
+
+Si parla di CDN (\textit{Coupling and Decoupling Network}), i condensatori sono necessari a 
+richiudere a terra eventuali disturbi provenienti dalla rete, con una
+capacità $C_2$ di circa \SI{47}{\micro\farad}, il valore delle induttanze $L$
+è maggiore o uguale a \SI{280}{\micro\henry} alla frequenza di \SI{150}{\kilo\hertz}.
+Il condensatore $C_1$ è pari a \SI{10}{\nano\farad}, 
