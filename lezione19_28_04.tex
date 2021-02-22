@@ -1,0 +1,58 @@
+\paragraph{Comportamento alle correnti differenziali e di modo comune}
+Il filtro a $\pi$ appena presentato si comporta diversamente se analizzato
+secondo le correnti di modo comune oppure differenziale.
+
+Il filtro induttivo è un circuito magnetico in cui vengono avvolti i due 
+cavi di fase e neutro, avvolti nello stesso verso,
+ciò comporta sicuramente che $L_P = L_N$, si ha inoltre una mutua induttanza
+dovuta all'influenza reciproca dei flussi indotti da uno dei due avvolgimenti, 
+che causa una tensione indotta nell'altro. Per come sono fatti gli
+avvolgimenti, quasi tutto il flusso si accoppia, ovvero il fattore di accoppiamento 
+è quasi unitario, ossia $M\simeq L$. Questo dispositivo si chiama 
+\textit{soppressore di modo comune}.
+
+\paragraph{Correnti di modo comune} Ossia $I_P = I_N = I_C$.
+%disegna filtro 0:30:00
+Il circuito del filtro è perfettamente simmetrico ed in questo caso
+anche il verso delle correnti è simmetrico, ciò implica che $V_P$ e $V_N$ hanno
+lo stesso valore, ossia su $C_D$ non ci sarà differenza di potenziale e quindi non
+vi sarà alcuna corrente. 
+
+Si può pensare di separare il circuito di fase da quello di terra
+a causa della simmetria del circuito, tralasciando momentaneamente il cavo di terra
+in comune e l'accoppiamento magnetico tra i due circuiti.
+
+\begin{figure}[h] %circuito singola fase parziale
+ \centering
+ \begin{circuitikz}
+ 
+ \end{circuitikz}
+\end{figure}
+
+La tensione ai capi dell'induttanza di ``green wire''  $L_{\text{GW}}$ sarà
+pari a $V = I_C j \omega 2L_{\text{GW}}$, per imporre la stessa tensione 
+del circuito completo, si raddoppia l'induttanza.
+
+Per quanto riguarda la mutua induttanza invece è possibile aggiungere una tensione
+pari a $V = I_C j \omega L + I_C j \omega M = I_C j \omega (L+M)$ dato che le correnti
+$I_C$ sono nello stesso verso, per tenere conto di questo fenomeno si può quindi
+modificare il valore dell'induttanza in $L+M$.
+
+Analizzando l'ultima maglia si vede che la corrente preferirà percorrere nel 
+condensatore $C_C$ se $\frac{1}{2 \pi f C_C} < \SI{50}{\ohm} 
+\Rightarrow f > \SI{1.5}{\mega\hertz}$ con $C_C$ pari a \SI{2200}{\pico\farad} come 
+precedentemente supposto.
+
+\paragraph{Correnti di modo differenziale} Ossia $I_P = I_D = - I_N$.
+Il circuito è ancora perfettamente simmetrico per quanto riguarda i componenti
+ma totalmente antisimmetrico per quanto riguarda le correnti, ciò implica che 
+la tensione $V_P$ sarà pari a $-V_N$, dovrà esistere quindi un punto virtuale a tensione
+nulla, il condensatore $C_D$ si può sostituire con 2 condensatori in serie
+con una capacità pari a $2C_D$.
+%0:53
+In questo modo il conduttore di protezione non sarà attraversato da alcuna corrente, si 
+può rimuovere l'induttanza di ``green wire''.
+
+Il contributo della mutua induttanza sarà differente a causa del diverso verso di corrente
+tra i due cavi, l'induttanza si trasformerà nel valore $L-M$.
+%1:00:00
