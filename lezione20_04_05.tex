@@ -121,3 +121,13 @@ una sorgente di pari impedenza, essa sarà pari alla metà della tensione a
 vuoto $V_0$, ossia $V_0' = V_0/2$. La tensione misurata dal EMI receiver
 $V_m$ sarà la partizione di $V_0'$ sulla resistenza interna dell'EMI, ossia
 $V_m = V_0' \cdot \frac{50}{100+50} = V_0'/3 = V_0/6$
+Si deve quindi regolare la tensione del generatore $V_G$ affinchè si misuri
+la tensione target, al variare della frequenza però possono crearsi accoppiamenti
+capacitivi parassiti che richiederanno una tensione del generatore superiore
+per ottenere la stessa $V_0$, la norma concede però una tolleranza
+di $\pm 25\%$ sul valore nominale di $V_0$.
+
+Anche in questo caso, con l'immissione dei disturbi sul cavo di alimentazione
+si effettuerà una modulazione in ampiezza del segnale con una frequenza
+di \SI{1}{\kilo\hertz} e una profondità di modulazione dell'80\% in analogia
+allo studio dell'immunità radiata.
