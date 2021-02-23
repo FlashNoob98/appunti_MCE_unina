@@ -16,13 +16,108 @@ induca la corrente sempre nello stesso verso in tutti i cavi.
 Anche l'impedenza dell'antenna va simulata, la sorgente ha tipicamente un'impedenza
 di \SI{150}{\ohm}.
 %Inserisci rappresentazione dispositivo immissione disturbi 0:30:00
-\begin{figure}[h]
- \begin{circuitikz}
+\begin{figure}[h] %CDN drawing
+\centering
+ \begin{circuitikz}[scale=1.2]
+ \draw (-0.5,2) node{P};
+ \draw (0,2)  to [short,*-] (4,2)
+              to [inductor,l=L] (6,2)
+              to [short,-*] (9,2);\draw (9.6,2) node{OUT};
+              
+ \draw (-0.5,1) node{N};
+ \draw (0,1)  to [short,*-] (4,1)
+              to [inductor,l=L] (6,1)
+              to [short,-*] (9,1);
+              
+              
+ \draw (-0.5,0) node{PE};
+ \draw (0,0)  to [short,*-] (4,0)
+              to [inductor,l=L] (6,0)
+              to [short,-*] (9,0);
+              
+ \draw (3,2) to [capacitor,*-,l=$C_2$] (3,1)
+             to [short,-*] (3,0);
+             
+ \draw (2,1) to [capacitor,*-*,l=$C_2$] (2,0);
+ \draw (1,0) node[ground]{};
+ 
+ \draw (6,2) to [resistor,*-,l=R] (6,4);
+ \draw (7,2) to [resistor,l=R] (7,4);
+ \draw (7,2) to [short,-*] (7,1);
+ \draw (8,2) to [resistor,l=R] (8,4);
+ \draw (8,2) to [short,-*] (8,0);
+ 
+ \draw (6,4) to [capacitor,l=$C_1$] (6,5)
+             to [short] (8,5)
+             to [short] (8,4);
+ \draw (7,4) to [capacitor,l_=$C_1$] (7,5);
+ 
+ \draw (7.3,5.5) node{IN};
+ \draw (7,5) to [short,-*] (7,5.5)
+             to [short] (7,6)
+             to [resistor,l_=$\SI{50}{\ohm}$] (5.5,6);
+ \draw (4,6) to [vsourcesin] (5.5,6);
+ \draw (4,6) node[ground]{};
  \end{circuitikz}
+ \caption{M3 CDN}
+ \label{fig:cdn}
 \end{figure}
 
 Si parla di CDN (\textit{Coupling and Decoupling Network}), i condensatori sono necessari a 
 richiudere a terra eventuali disturbi provenienti dalla rete, con una
 capacità $C_2$ di circa \SI{47}{\micro\farad}, il valore delle induttanze $L$
 è maggiore o uguale a \SI{280}{\micro\henry} alla frequenza di \SI{150}{\kilo\hertz}.
-Il condensatore $C_1$ è pari a \SI{10}{\nano\farad}, 
+Il condensatore $C_1$ è pari a \SI{10}{\nano\farad}.
+
+Il disturbo si ripartisce nello stesso verso su tutti i cavi, per direzionare
+il disturbo solo verso l'EUT e non verso la rete, le induttanze si comportano
+come circuiti aperti in alta frequenza.
+I condensatori $C_1$ servono ad isolare la componente a \SI{50}{\hertz} dal
+generatore di disturbi ed evitare eventuali danni.
+
+Esistono vari tipi di CDN in funzione della tipologia di cavo, quella rappresentata
+in figura \ref{fig:cdn} è utilizzata per dispositivi monofase con terra di protezione.
+
+Per misurare l'impedenza di modo comune $Z_{\text{CM}}$ si uniscono i 3 cavi terminali 
+della CDN e si misura l'impedenza rispetto a terra. Questa impedenza è data dal 
+parallelo delle tre resistenze sulla porta di ingresso e dalla somma della
+resistenza del generatore di \SI{50}{\ohm}, il valore di ogni resistenza R sarà quindi 
+pari a \SI{300}{\ohm}.
+
+Se si suppone di avere una rete M2, ovvero con solo due conduttori e quindi 2 resistenze,
+esse avranno un valore di \SI{200}{\ohm}, una rete M1 avrà una resistenza da 
+\SI{100}{\ohm} e così via.
+
+Se si dovesse analizzare il disturbo su un cavo schermato contenente 25 pin,
+la CDN dovrebbe essere comunque di tipo M1 e iniettare i disturbi soltanto
+sullo schermo esterno, non ci sarebbe alcuna possibilità per i disturbi
+di raggiungere i conduttori interni allo schermo.
+%0:57
+\paragraph{Taratura della CDN}
+La taratura della \textit{CDN} viene eseguita mediante la misurazione della
+tensione di modo comune d'uscita a vuoto, come indicato dalle norme, tipicamente
+\SI{3}{\volt_{RMS}} .
+Non si può collegare direttamente l'EMI receiver all'uscita della CDN a causa
+della sua impedenza di \SI{50}{\ohm} che si comporterebbe  come un carico
+disadattato per la CDN, generando una riflessione di potenza verso il
+generatore. Si interpone quindi un dispositivo di adattamento con una impedenza
+equivalente di \SI{100}{\ohm}. Un ulteriore dispositivo di adattamento è interposto 
+tra il generatore e la CDN, un tronco di linea di trasmissione dissipativo con
+attenuazione da \SI{6}{\decibel} e impedenza caratteristica di \SI{50}{\ohm}.
+
+Il segnale $V_{\text{out}}$ in uscita dal generatore
+verrà quindi attenuato a $V_{\text{out}}/2$ e vedrà un'impedenza
+di \SI{250}{\ohm} dall'ingresso della CDN in poi, ci sarà un'onda
+riflessa pari a $\Gamma\cdot V_{\text{out}}/4$ dopo aver ripercorso la linea 
+di trasmissione da \SI{6}{\decibel}. Essendo $\Gamma$ sicuramente minore di 1,
+si può considerare trascurabile l'ampiezza dell'onda riflessa e ritenere tutto
+sommato il carico adattato.
+
+La linea di attenuazione di \SI{6}{\decibel} verrà quindi utilizzata anche in fase 
+operativa.
+
+Dato che la tensione all'uscita della CDN si ha con un carico di \SI{150}{\ohm} e 
+una sorgente di pari impedenza, essa sarà pari alla metà della tensione a 
+vuoto $V_0$, ossia $V_0' = V_0/2$. La tensione misurata dal EMI receiver
+$V_m$ sarà la partizione di $V_0'$ sulla resistenza interna dell'EMI, ossia
+$V_m = V_0' \cdot \frac{50}{100+50} = V_0'/3 = V_0/6$
