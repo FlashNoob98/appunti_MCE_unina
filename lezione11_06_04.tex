@@ -7,7 +7,7 @@ avanza di una frequenza pari a $RBW/2$ ovvero mezza Resolution Bandwidth,
 il tempo necessario ad eseguire la misura è molto maggiore a causa dei tempi
 tipici dei vari rivelatori.
 
-il \textit{Test della resolution bandwidth} permette di determinare
+Il \textit{test della resolution bandwidth} permette di determinare
 se il segnale è a banda stretta o larga, se il segnale è a banda stretta, il valore
 misurato non dipende dall'ampiezza della Resolution Bandwidth (a meno del rumore addizionale),
 nel caso di segnale a banda larga invece possiamo determinare un valore della Resolution Bandwidth oltre
@@ -85,19 +85,29 @@ corretto funzionamento di qualsiasi dispositivo elettrico o elettronico.
     (0,0) [dashed] -- (4,0);
     \draw (0.5,-1) [->] -- (0.5,1) node[anchor=east]{$I_d$};
     \draw (1,1)node[anchor=west]{$-I_d$} [->] -- (1,-1);
-    \filldraw [black] (0.75,0) circle (2pt);
-   \draw (3.7,0) -- (3.7,1.8);
+    \filldraw [black] (0.75,0) node[anchor=south]{1} circle (2pt);
+   \draw (3,0) [->] -- (3,-0.5) node[anchor=east]{$E_{I_d}$};
+   \filldraw [black] (3.25,0) node[anchor=north]{2} circle (2pt);
+   \draw [red](3.25,0) [->] -- (3.25,0.5) node[anchor=east]{$E_d$};
+   \draw (3.5,0) [->] -- (3.5,1) node[anchor=west]{$E_{-I_d}$};
   \end{circuitikz}
-  \caption{}
+  \caption{Campo dovuto a correnti differenziali}
   \label{fig:AAA}
  \end{subfigure}
  \quad \quad \quad
  \begin{subfigure}[t]{0.3\textwidth}
   \begin{circuitikz}
-  \draw (0,0) [dashed] -- (4,0);
-  \draw [->] (3.7,0) -- (3.7,1.8);
+    \draw
+    (0,0) [dashed] -- (4,0);
+    \draw (0.5,-1) [->] -- (0.5,1) node[anchor=east]{$I_c$};
+   \draw (1,-1) [->] -- (1,1) node[anchor=west]{$I_c$};
+    \filldraw [black] (0.75,0) node[anchor=south]{1} circle (2pt);
+   \draw (3,0) [->] -- (3,-0.5) node[anchor=east]{$E_{I_c}$};
+   \filldraw [black] (3.25,0) node[anchor=south]{2} circle (2pt);
+   \draw [red](3.25,0) [->] -- (3.25,-1.5) node[anchor=east]{$E_c$};
+   \draw (3.5,0) [->] -- (3.5,-1) node[anchor=west]{$E_{I_c}$};
   \end{circuitikz}
-  \caption{}
+  \caption{Campo dovuto a correnti di modo comune}
   \label{fig:BBB}
  \end{subfigure}
  \caption{}
